@@ -1,13 +1,19 @@
+/* 
+@tailwind base; - Injects Tailwind's base styles (reset, normalize, default element styles)
+@tailwind components; - Injects component classes (can be extended with custom @layer components)  
+@tailwind utilities; - Injects utility classes (margins, padding, colors, etc.)
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Emo Pink Tattoo School Design System - Maintaining current emo pink palette
+All colors MUST be HSL for consistency and theme switching.
 */
 
 @layer base {
   :root {
+    /* Dark background with emo vibes */
     --background: 0 0% 8%;
     --foreground: 0 0% 95%;
 
@@ -17,48 +23,50 @@ All colors MUST be HSL.
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
+    /* Emo pink primary - keeping existing palette */
     --primary: 320 85% 70%;
     --primary-foreground: 0 0% 8%;
+    --primary-glow: 320 100% 70%;
 
+    /* Dark secondary with emo undertones */
     --secondary: 320 50% 25%;
     --secondary-foreground: 0 0% 95%;
 
     --muted: 320 20% 15%;
     --muted-foreground: 320 10% 65%;
 
+    /* Emo pink accent */
     --accent: 320 70% 50%;
     --accent-foreground: 0 0% 95%;
+    --accent-glow: 320 90% 60%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 0 0% 95%;
+    --ring: 320 85% 70%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    /* Custom design tokens for emo tattoo school */
-    --ink-black: 0 0% 8%;
-    --ink-white: 0 0% 98%;
+    /* Custom emo pink design tokens */
     --emo-pink: 320 100% 70%;
     --emo-pink-dark: 320 80% 40%;
-    --shadow-dark: 0 0% 3%;
-    --shadow-subtle: 0 0% 18%;
+    --emo-pink-light: 320 90% 80%;
     
-    /* Emo Pink Gradients */
+    /* 3D effect gradients - keeping emo pink theme */
     --gradient-emo: linear-gradient(135deg, hsl(320 100% 70%), hsl(320 80% 40%));
-    --gradient-emo-glow: linear-gradient(135deg, hsl(320 100% 70%), hsl(280 100% 60%));
+    --gradient-3d: linear-gradient(145deg, hsl(320 20% 15%), hsl(320 30% 20%), hsl(320 20% 12%));
     --gradient-dark-emo: linear-gradient(135deg, hsl(0 0% 8%), hsl(320 30% 15%));
-    --gradient-subtle: linear-gradient(180deg, hsl(320 20% 12%), hsl(0 0% 8%));
+    --gradient-card-3d: linear-gradient(145deg, hsl(0 0% 12%), hsl(320 15% 16%), hsl(0 0% 10%));
     
-    /* Enhanced Shadows */
-    --shadow-elegant: 0 20px 50px -10px hsl(0 0% 0% / 0.8);
-    --shadow-glow: 0 0 40px hsl(320 100% 70% / 0.3);
-    --shadow-emo: 0 0 30px hsl(320 100% 70% / 0.5);
+    /* 3D Shadows - no glow, just depth */
+    --shadow-3d: 0 8px 32px hsl(0 0% 0% / 0.6), 0 2px 8px hsl(0 0% 0% / 0.4);
+    --shadow-3d-hover: 0 12px 40px hsl(0 0% 0% / 0.7), 0 4px 12px hsl(0 0% 0% / 0.5);
+    --shadow-inset: inset 0 2px 4px hsl(0 0% 0% / 0.3);
     
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* 3D Animations */
+    --transition-3d: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 0 0% 90%;
@@ -67,7 +75,7 @@ All colors MUST be HSL.
     --sidebar-accent: 0 0% 15%;
     --sidebar-accent-foreground: 0 0% 95%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 0 0% 95%;
+    --sidebar-ring: 320 85% 70%;
   }
 
   .dark {
@@ -131,52 +139,90 @@ All colors MUST be HSL.
     background-position: 0 0, 30px 30px, 0 0, 15px 15px;
   }
   
-  .geometric-border {
-    position: relative;
+  /* 3D Card Effects - No glow, just depth */
+  .card-3d {
+    background: var(--gradient-card-3d);
+    box-shadow: var(--shadow-3d);
+    transform: translateZ(0);
+    transition: var(--transition-3d);
   }
   
-  .geometric-border::before {
+  .card-3d:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: var(--shadow-3d-hover);
+  }
+  
+  /* 3D Button Effects */
+  .btn-3d {
+    background: var(--gradient-3d);
+    box-shadow: var(--shadow-3d);
+    transform: translateZ(0);
+    transition: var(--transition-3d);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-3d:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(320 100% 70% / 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .btn-3d:hover:before {
+    left: 100%;
+  }
+  
+  .btn-3d:hover {
+    transform: translateY(-2px) translateZ(0);
+    box-shadow: var(--shadow-3d-hover);
+  }
+  
+  .btn-3d:active {
+    transform: translateY(0) translateZ(0);
+    box-shadow: var(--shadow-inset);
+  }
+  
+  /* 3D Text Effects - no glow */
+  .text-3d {
+    background: var(--gradient-emo);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px hsl(0 0% 0% / 0.3);
+  }
+  
+  /* Geometric 3D Border */
+  .geometric-3d {
+    position: relative;
+    background: var(--gradient-card-3d);
+    box-shadow: var(--shadow-3d);
+    border: 1px solid hsl(320 30% 20%);
+  }
+  
+  .geometric-3d::before {
     content: '';
     position: absolute;
     inset: 0;
     padding: 1px;
-    background: linear-gradient(45deg, hsl(0 0% 98%), hsl(0 0% 20%));
+    background: linear-gradient(45deg, hsl(320 70% 50%), hsl(320 40% 30%));
     border-radius: inherit;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: xor;
     -webkit-mask-composite: xor;
   }
   
-  .hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Hover effects without glow */
+  .hover-3d {
+    transition: var(--transition-3d);
   }
   
-  .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-elegant);
-  }
-  
-  .ink-gradient {
-    background: var(--gradient-dark);
-  }
-  
-  .text-gradient {
-    background: var(--gradient-emo-glow);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .emo-glow {
-    filter: drop-shadow(0 0 20px hsl(320 100% 70% / 0.8));
-  }
-  
-  .fluid-border {
-    border: 2px solid transparent;
-    background: linear-gradient(135deg, hsl(320 100% 70%), hsl(280 100% 60%)) border-box;
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: exclude;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
+  .hover-3d:hover {
+    transform: translateY(-6px) rotateX(5deg);
+    box-shadow: var(--shadow-3d-hover);
   }
 }

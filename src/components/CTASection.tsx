@@ -1,13 +1,39 @@
 import { MessageCircle, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
 
 const CTASection = () => {
+  const { toast } = useToast();
+
+  const handleConsultationClick = () => {
+    toast({
+      title: "Заявка отправлена!",
+      description: "Мы свяжемся с вами в течение 24 часов для записи на консультацию",
+    });
+  };
+
+  const handleTelegramClick = () => {
+    toast({
+      title: "Telegram",
+      description: "Переходим в Telegram для быстрой связи",
+    });
+    // В реальном приложении здесь был бы переход на t.me/your_bot
+  };
+
+  const handleEmailClick = () => {
+    toast({
+      title: "Email",
+      description: "Открываем почтовый клиент для отправки письма",
+    });
+    // В реальном приложении здесь был бы mailto:
+  };
+
   return (
     <section id="contact" className="py-20 bg-card/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-3d mb-4">
             НАЧНИТЕ СЕГОДНЯ
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -17,7 +43,7 @@ const CTASection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {/* Free Consultation */}
-          <Card className="geometric-border hover-lift">
+          <Card className="geometric-3d card-3d hover-3d">
             <CardHeader>
               <CardTitle className="text-2xl">Бесплатная консультация</CardTitle>
               <CardDescription className="text-lg">
@@ -39,7 +65,7 @@ const CTASection = () => {
                   <span>Подбор программы</span>
                 </li>
               </ul>
-              <Button className="w-full" size="lg">
+              <Button className="w-full btn-3d" size="lg" onClick={handleConsultationClick}>
                 Записаться на консультацию
               </Button>
             </CardContent>
@@ -53,7 +79,7 @@ const CTASection = () => {
               </h3>
             </div>
 
-            <Card className="geometric-border hover-lift">
+            <Card className="geometric-3d card-3d hover-3d">
               <CardContent className="flex items-center space-x-4 p-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                   <MessageCircle className="h-6 w-6 text-primary" />
@@ -64,13 +90,13 @@ const CTASection = () => {
                     Быстрые ответы и консультации
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="ml-auto">
+                <Button variant="outline" size="sm" className="ml-auto btn-3d" onClick={handleTelegramClick}>
                   Написать
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="geometric-border hover-lift">
+            <Card className="geometric-3d card-3d hover-3d">
               <CardContent className="flex items-center space-x-4 p-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Mail className="h-6 w-6 text-primary" />
@@ -81,13 +107,13 @@ const CTASection = () => {
                     Подробные консультации и документы
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="ml-auto">
+                <Button variant="outline" size="sm" className="ml-auto btn-3d" onClick={handleEmailClick}>
                   Отправить
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="geometric-border hover-lift">
+            <Card className="geometric-3d card-3d hover-3d">
               <CardContent className="flex items-center space-x-4 p-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Clock className="h-6 w-6 text-primary" />
