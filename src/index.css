@@ -13,7 +13,7 @@ All colors MUST be HSL for consistency and theme switching.
 
 @layer base {
   :root {
-    /* Dark background with emo vibes */
+    /* Dark cyber background */
     --background: 0 0% 8%;
     --foreground: 0 0% 95%;
 
@@ -23,50 +23,55 @@ All colors MUST be HSL for consistency and theme switching.
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    /* Emo pink primary - keeping existing palette */
-    --primary: 320 85% 70%;
+    /* Bright pixel pink primary - inspired by logo */
+    --primary: 320 100% 75%;
     --primary-foreground: 0 0% 8%;
-    --primary-glow: 320 100% 70%;
-
-    /* Dark secondary with emo undertones */
-    --secondary: 320 50% 25%;
-    --secondary-foreground: 0 0% 95%;
+    
+    /* Cyber cyan from logo */
+    --secondary: 180 100% 70%;
+    --secondary-foreground: 0 0% 8%;
 
     --muted: 320 20% 15%;
     --muted-foreground: 320 10% 65%;
 
-    /* Emo pink accent */
-    --accent: 320 70% 50%;
-    --accent-foreground: 0 0% 95%;
-    --accent-glow: 320 90% 60%;
+    /* Pixel purple accent */
+    --accent: 280 100% 75%;
+    --accent-foreground: 0 0% 8%;
+
+    /* Neon green highlight */
+    --highlight: 120 100% 60%;
+    --highlight-foreground: 0 0% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 320 85% 70%;
+    --ring: 320 100% 75%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom emo pink design tokens */
-    --emo-pink: 320 100% 70%;
-    --emo-pink-dark: 320 80% 40%;
-    --emo-pink-light: 320 90% 80%;
+    /* Pixel art design tokens - inspired by SBT Robot logo */
+    --pixel-pink: 320 100% 75%;
+    --pixel-cyan: 180 100% 70%;
+    --pixel-purple: 280 100% 75%;
+    --pixel-green: 120 100% 60%;
     
-    /* 3D effect gradients - keeping emo pink theme */
-    --gradient-emo: linear-gradient(135deg, hsl(320 100% 70%), hsl(320 80% 40%));
-    --gradient-3d: linear-gradient(145deg, hsl(320 20% 15%), hsl(320 30% 20%), hsl(320 20% 12%));
-    --gradient-dark-emo: linear-gradient(135deg, hsl(0 0% 8%), hsl(320 30% 15%));
-    --gradient-card-3d: linear-gradient(145deg, hsl(0 0% 12%), hsl(320 15% 16%), hsl(0 0% 10%));
+    /* 3D pixel effect gradients */
+    --gradient-pixel: linear-gradient(135deg, hsl(var(--pixel-pink)), hsl(var(--pixel-cyan)));
+    --gradient-3d-pixel: linear-gradient(145deg, hsl(0 0% 15%), hsl(320 30% 20%), hsl(180 30% 20%));
+    --gradient-cyber: linear-gradient(135deg, hsl(0 0% 8%), hsl(320 30% 15%), hsl(180 30% 15%));
+    --gradient-card-3d: linear-gradient(145deg, hsl(0 0% 12%), hsl(320 15% 16%), hsl(180 15% 16%));
     
-    /* 3D Shadows - no glow, just depth */
-    --shadow-3d: 0 8px 32px hsl(0 0% 0% / 0.6), 0 2px 8px hsl(0 0% 0% / 0.4);
-    --shadow-3d-hover: 0 12px 40px hsl(0 0% 0% / 0.7), 0 4px 12px hsl(0 0% 0% / 0.5);
+    /* Enhanced 3D shadows with pixel glow */
+    --shadow-3d: 0 8px 32px hsl(0 0% 0% / 0.6), 0 2px 8px hsl(320 100% 75% / 0.2);
+    --shadow-3d-hover: 0 12px 40px hsl(0 0% 0% / 0.7), 0 4px 12px hsl(320 100% 75% / 0.3);
+    --shadow-pixel-glow: 0 0 20px hsl(var(--pixel-pink) / 0.6), 0 0 40px hsl(var(--pixel-cyan) / 0.4);
     --shadow-inset: inset 0 2px 4px hsl(0 0% 0% / 0.3);
     
-    /* 3D Animations */
+    /* Pixel animations */
     --transition-3d: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-pixel: all 0.2s steps(4, end);
 
     --sidebar-background: 0 0% 10%;
     --sidebar-foreground: 0 0% 90%;
@@ -126,6 +131,12 @@ All colors MUST be HSL for consistency and theme switching.
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
+
+  .font-pixel {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
 }
 
 @layer components {
@@ -152,14 +163,15 @@ All colors MUST be HSL for consistency and theme switching.
     box-shadow: var(--shadow-3d-hover);
   }
   
-  /* 3D Button Effects */
+  /* 3D Pixel Button Effects */
   .btn-3d {
-    background: var(--gradient-3d);
+    background: var(--gradient-pixel);
     box-shadow: var(--shadow-3d);
     transform: translateZ(0);
     transition: var(--transition-3d);
     position: relative;
     overflow: hidden;
+    border: 2px solid hsl(var(--pixel-pink));
   }
   
   .btn-3d:before {
@@ -169,8 +181,8 @@ All colors MUST be HSL for consistency and theme switching.
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, hsl(320 100% 70% / 0.2), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, hsl(var(--pixel-cyan) / 0.4), transparent);
+    transition: left 0.3s steps(8, end);
   }
   
   .btn-3d:hover:before {
@@ -178,22 +190,45 @@ All colors MUST be HSL for consistency and theme switching.
   }
   
   .btn-3d:hover {
-    transform: translateY(-2px) translateZ(0);
-    box-shadow: var(--shadow-3d-hover);
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: var(--shadow-pixel-glow);
+    animation: pixelGlow 0.5s ease-in-out infinite alternate;
   }
   
   .btn-3d:active {
     transform: translateY(0) translateZ(0);
     box-shadow: var(--shadow-inset);
   }
+
+  /* Pixel button variants */
+  .btn-pixel-primary {
+    background: linear-gradient(135deg, hsl(var(--pixel-pink)), hsl(var(--pixel-purple)));
+    color: hsl(0 0% 8%);
+    border: 2px solid hsl(var(--pixel-pink));
+    font-weight: bold;
+  }
+
+  .btn-pixel-secondary {
+    background: linear-gradient(135deg, hsl(var(--pixel-cyan)), hsl(var(--pixel-green)));
+    color: hsl(0 0% 8%);
+    border: 2px solid hsl(var(--pixel-cyan));
+  }
   
-  /* 3D Text Effects - no glow */
+  /* 3D Pixel Text Effects */
   .text-3d {
-    background: var(--gradient-emo);
+    background: var(--gradient-pixel);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 4px hsl(0 0% 0% / 0.3);
+    text-shadow: 0 2px 4px hsl(0 0% 0% / 0.3), 0 0 10px hsl(var(--pixel-pink) / 0.5);
+  }
+
+  .text-pixel {
+    color: hsl(var(--pixel-pink));
+    text-shadow: 
+      2px 2px 0 hsl(var(--pixel-cyan)), 
+      4px 4px 0 hsl(0 0% 0% / 0.5);
+    filter: drop-shadow(0 0 10px hsl(var(--pixel-pink) / 0.6));
   }
   
   /* Geometric 3D Border */
@@ -223,6 +258,29 @@ All colors MUST be HSL for consistency and theme switching.
   
   .hover-3d:hover {
     transform: translateY(-6px) rotateX(5deg);
-    box-shadow: var(--shadow-3d-hover);
+    box-shadow: var(--shadow-pixel-glow);
+  }
+
+  /* Pixel animations */
+  @keyframes pixelGlow {
+    0% { filter: brightness(1) hue-rotate(0deg); }
+    100% { filter: brightness(1.2) hue-rotate(5deg); }
+  }
+
+  @keyframes pixelFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .pixel-float {
+    animation: pixelFloat 3s ease-in-out infinite;
+  }
+
+  /* Pixel grid background */
+  .pixel-grid {
+    background-image: 
+      linear-gradient(hsl(var(--pixel-pink) / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--pixel-cyan) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 }

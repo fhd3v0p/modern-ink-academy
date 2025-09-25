@@ -33,12 +33,15 @@ const CTASection = () => {
     <section id="contact" className="py-20 bg-card/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-3d mb-4">
-            НАЧНИТЕ СЕГОДНЯ
+          <h2 className="text-3xl md:text-4xl font-pixel text-pixel mb-6">
+            🚀 НАЧНИТЕ СЕГОДНЯ
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Запишитесь на бесплатную консультацию и выберите подходящий курс
           </p>
+          <div className="mt-4 font-pixel text-xs text-accent">
+            AI ПОДБОР КУРСА • ПЕРСОНАЛЬНЫЙ ПЛАН • ГЕЙМИФИКАЦИЯ
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -65,8 +68,8 @@ const CTASection = () => {
                   <span>Подбор программы</span>
                 </li>
               </ul>
-              <Button className="w-full btn-3d" size="lg" onClick={handleConsultationClick}>
-                Записаться на консультацию
+              <Button className="w-full btn-3d btn-pixel-primary font-pixel text-xs" size="lg" onClick={handleConsultationClick}>
+                🤖 ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ
               </Button>
             </CardContent>
           </Card>
@@ -90,8 +93,8 @@ const CTASection = () => {
                     Быстрые ответы и консультации
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="ml-auto btn-3d" onClick={handleTelegramClick}>
-                  Написать
+                <Button variant="outline" size="sm" className="ml-auto btn-3d btn-pixel-secondary font-pixel text-xs" onClick={handleTelegramClick}>
+                  📱 НАПИСАТЬ
                 </Button>
               </CardContent>
             </Card>
@@ -107,8 +110,8 @@ const CTASection = () => {
                     Подробные консультации и документы
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="ml-auto btn-3d" onClick={handleEmailClick}>
-                  Отправить
+                <Button variant="outline" size="sm" className="ml-auto btn-3d btn-pixel-secondary font-pixel text-xs" onClick={handleEmailClick}>
+                  📧 ОТПРАВИТЬ
                 </Button>
               </CardContent>
             </Card>
