@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 0% 98%;
+    --primary: 320 85% 70%;
     --primary-foreground: 0 0% 8%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 320 50% 25%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 320 20% 15%;
+    --muted-foreground: 320 10% 65%;
 
-    --accent: 0 0% 20%;
+    --accent: 320 70% 50%;
     --accent-foreground: 0 0% 95%;
 
     --destructive: 0 84.2% 60.2%;
@@ -38,19 +38,24 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Custom design tokens for tattoo school */
+    /* Custom design tokens for emo tattoo school */
     --ink-black: 0 0% 8%;
     --ink-white: 0 0% 98%;
+    --emo-pink: 320 100% 70%;
+    --emo-pink-dark: 320 80% 40%;
     --shadow-dark: 0 0% 3%;
     --shadow-subtle: 0 0% 18%;
     
-    /* Gradients */
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 15%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 12%), hsl(0 0% 8%));
+    /* Emo Pink Gradients */
+    --gradient-emo: linear-gradient(135deg, hsl(320 100% 70%), hsl(320 80% 40%));
+    --gradient-emo-glow: linear-gradient(135deg, hsl(320 100% 70%), hsl(280 100% 60%));
+    --gradient-dark-emo: linear-gradient(135deg, hsl(0 0% 8%), hsl(320 30% 15%));
+    --gradient-subtle: linear-gradient(180deg, hsl(320 20% 12%), hsl(0 0% 8%));
     
-    /* Shadows */
+    /* Enhanced Shadows */
     --shadow-elegant: 0 20px 50px -10px hsl(0 0% 0% / 0.8);
-    --shadow-glow: 0 0 40px hsl(0 0% 98% / 0.1);
+    --shadow-glow: 0 0 40px hsl(320 100% 70% / 0.3);
+    --shadow-emo: 0 0 30px hsl(320 100% 70% / 0.5);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,16 +80,16 @@ All colors MUST be HSL.
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 0% 98%;
+    --primary: 320 85% 70%;
     --primary-foreground: 0 0% 8%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 320 50% 25%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 320 20% 15%;
+    --muted-foreground: 320 10% 65%;
 
-    --accent: 0 0% 20%;
+    --accent: 320 70% 50%;
     --accent-foreground: 0 0% 95%;
 
     --destructive: 0 62.8% 30.6%;
@@ -156,9 +161,22 @@ All colors MUST be HSL.
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 70%));
+    background: var(--gradient-emo-glow);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  .emo-glow {
+    filter: drop-shadow(0 0 20px hsl(320 100% 70% / 0.8));
+  }
+  
+  .fluid-border {
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, hsl(320 100% 70%), hsl(280 100% 60%)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
   }
 }

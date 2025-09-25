@@ -21,8 +21,8 @@ const Navigation = () => {
               <div className="w-4 h-4 border-2 border-primary-foreground rotate-45"></div>
             </div>
             <div className="text-xl font-bold">
-              <span className="text-gradient">MODERNTATTOO</span>
-              <div className="text-xs text-muted-foreground">ACADEMY</div>
+              <span className="text-gradient emo-glow">SBT</span>
+              <div className="text-xs text-muted-foreground">STOP BUILLING TATTOO</div>
             </div>
           </div>
 

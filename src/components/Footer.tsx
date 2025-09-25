@@ -24,12 +24,12 @@ const Footer = () => {
                 <div className="w-4 h-4 border-2 border-primary-foreground rotate-45"></div>
               </div>
               <div className="text-xl font-bold">
-                <span className="text-gradient">MODERNTATTOO</span>
-                <div className="text-xs text-muted-foreground">ACADEMY</div>
+                <span className="text-gradient emo-glow">SBT</span>
+                <div className="text-xs text-muted-foreground">STOP BUILLING TATTOO</div>
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Онлайн школа татуировок с современным подходом к обучению. 
+              Онлайн школа татуировок SBT с современным подходом к обучению. 
               Освойте профессию мечты с ведущими мастерами индустрии.
             </p>
           </div>
@@ -66,7 +66,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 MODERNTATTOO ACADEMY. Все права защищены.
+            © 2024 SBT (STOP BUILLING TATTOO). Все права защищены.
           </p>
         </div>
       </div>

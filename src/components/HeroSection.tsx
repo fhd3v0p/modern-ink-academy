@@ -21,10 +21,10 @@ const HeroSection = () => {
           {/* Logo */}
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-bold mb-2">
-              <span className="text-gradient">MODERNTATTOO</span>
+              <span className="text-gradient emo-glow">SBT</span>
             </h1>
             <div className="text-2xl md:text-3xl text-muted-foreground font-light tracking-[0.3em]">
-              ACADEMY
+              STOP BUILLING TATTOO
             </div>
           </div>
 
@@ -53,7 +53,7 @@ const HeroSection = () => {
           </div>
 
           {/* CTA Button */}
-          <Button size="lg" className="text-lg px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button size="lg" className="text-lg px-8 py-6 bg-primary text-primary-foreground hover:bg-primary/90 emo-glow fluid-border">
             НАЧАТЬ ОБУЧЕНИЕ
           </Button>
         </div>
