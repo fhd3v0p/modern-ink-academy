@@ -234,8 +234,9 @@ const InstructorsSection = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-pixel text-pixel mb-4">
-            👥 НАШИ ПРЕПОДАВАТЕЛИ
+          <h2 className="text-2xl md:text-4xl font-pixel text-pixel mb-4 flex items-center justify-center gap-2">
+            <span>👥</span>
+            <span>НАШИ ПРЕПОДАВАТЕЛИ</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Команда профессионалов с многолетним опытом в татуировке и обучении
@@ -322,7 +323,7 @@ const InstructorsSection = () => {
                           🎨 ПОРТФОЛИО
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                      <DialogContent className="max-w-[95vw] md:max-w-4xl max-h-[90vh] overflow-y-auto z-[10000] mx-2 md:mx-auto">
                         <DialogHeader>
                           <DialogTitle className="font-pixel text-pixel text-2xl">
                             🎨 ПОРТФОЛИО {instructor.name}
@@ -361,7 +362,7 @@ const InstructorsSection = () => {
 
       {/* Avatar Popup */}
       <Dialog open={!!selectedAvatar} onOpenChange={() => setSelectedAvatar(null)}>
-        <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl">
+        <DialogContent className="max-w-[95vw] md:max-w-md mx-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl z-[10000] mx-2 md:mx-auto">
           <DialogHeader>
             <DialogTitle className="text-center mb-6 font-pixel text-pixel">
               Аватар преподавателя
@@ -382,7 +383,7 @@ const InstructorsSection = () => {
       {/* Portfolio Image Popup */}
       <Dialog open={!!selectedPortfolioImage} onOpenChange={() => setSelectedPortfolioImage(null)}>
         <DialogContent 
-          className="max-w-6xl max-h-[90vh] overflow-hidden bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl px-4 py-6"
+          className="max-w-[95vw] md:max-w-6xl max-h-[90vh] overflow-hidden bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl px-4 py-6 z-[10000] mx-2 md:mx-auto"
           onKeyDown={handleKeyDown}
           tabIndex={0}
         >
@@ -454,7 +455,7 @@ const InstructorsSection = () => {
 
       {/* Instructor Info Popups */}
       <Dialog open={!!selectedInstructorInfo} onOpenChange={() => setSelectedInstructorInfo(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl">
+        <DialogContent className="max-w-[95vw] md:max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl z-[10000] mx-2 md:mx-auto">
           <DialogHeader>
             <DialogTitle className="text-center mb-6 font-pixel text-pixel">
               ℹ️ ПОДРОБНАЯ ИНФОРМАЦИЯ

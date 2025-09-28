@@ -41,35 +41,50 @@ const HeroSection = () => {
       {/* Background pattern */}
       <div className="absolute inset-0 abstract-pattern opacity-30"></div>
       
-      {/* Abstract graphics - под основным контентом */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-10 left-5 w-96 h-96 opacity-5">
+      {/* Abstract graphics - строго ограничены контейнером */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Мобильная версия - меньшие элементы */}
+        <div className="absolute top-10 left-2 w-32 h-32 opacity-5 md:hidden">
           <img src={abstractShapes22} alt="" className="w-full h-full object-contain filter invert" />
         </div>
-        <div className="absolute top-1/3 right-0 w-96 h-96 opacity-5">
+        <div className="absolute top-1/3 right-2 w-32 h-32 opacity-5 md:hidden">
           <img src={abstractShapes221} alt="" className="w-full h-full object-contain filter invert" />
         </div>
-        <div className="absolute bottom-10 left-1/4 w-96 h-96 opacity-5">
+        <div className="absolute bottom-10 left-1/4 w-32 h-32 opacity-5 md:hidden">
           <img src={geometricCollection} alt="" className="w-full h-full object-contain filter invert rotate-45" />
         </div>
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 opacity-5">
+        <div className="absolute top-1/4 left-1/3 w-32 h-32 opacity-5 md:hidden">
           <img src={abstractShapes22} alt="" className="w-full h-full object-contain filter invert -rotate-12" />
         </div>
-        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 opacity-5">
+        
+        {/* Десктопная версия - большие элементы */}
+        <div className="absolute top-10 left-5 w-64 h-64 opacity-5 hidden md:block">
+          <img src={abstractShapes22} alt="" className="w-full h-full object-contain filter invert" />
+        </div>
+        <div className="absolute top-1/3 right-5 w-64 h-64 opacity-5 hidden md:block">
+          <img src={abstractShapes221} alt="" className="w-full h-full object-contain filter invert" />
+        </div>
+        <div className="absolute bottom-10 left-1/4 w-64 h-64 opacity-5 hidden md:block">
+          <img src={geometricCollection} alt="" className="w-full h-full object-contain filter invert rotate-45" />
+        </div>
+        <div className="absolute top-1/4 left-1/3 w-64 h-64 opacity-5 hidden md:block">
+          <img src={abstractShapes22} alt="" className="w-full h-full object-contain filter invert -rotate-12" />
+        </div>
+        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 opacity-5 hidden md:block">
           <img src={abstractShapes221} alt="" className="w-full h-full object-contain filter invert rotate-90" />
         </div>
-        <div className="absolute top-1/2 left-10 w-96 h-96 opacity-5">
+        <div className="absolute top-1/2 left-10 w-64 h-64 opacity-5 hidden md:block">
           <img src={geometricCollection} alt="" className="w-full h-full object-contain filter invert rotate-180" />
         </div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 opacity-5">
+        <div className="absolute bottom-20 right-10 w-64 h-64 opacity-5 hidden md:block">
           <img src={abstractShapes22} alt="" className="w-full h-full object-contain filter invert -rotate-45" />
         </div>
-        <div className="absolute top-20 right-1/3 w-96 h-96 opacity-5">
+        <div className="absolute top-20 right-1/3 w-64 h-64 opacity-5 hidden md:block">
           <img src={abstractShapes221} alt="" className="w-full h-full object-contain filter invert rotate-30" />
         </div>
       </div>
 
-      {/* Free flying logos */}
+      {/* Free flying logos - показываем на всех устройствах */}
       <div className="absolute inset-0 z-1 pointer-events-none">
         {/* Free flying logo 1 */}
         <div className="absolute w-36 h-36 free-fly-1">
@@ -90,7 +105,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Orbiting logos around main logo */}
+      {/* Orbiting logos around main logo - показываем на всех устройствах */}
       <div className="absolute inset-0 z-1 pointer-events-none">
         {/* Orbiting logos around the main logo */}
         <div className="absolute top-1/5 left-1/3 transform -translate-x-1/2 -translate-y-1/2">
@@ -193,7 +208,7 @@ const HeroSection = () => {
 
       {/* ASCII Tattoo Image Dialog */}
       <Dialog open={showAsciiImage} onOpenChange={setShowAsciiImage}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-[95vw] md:max-w-2xl z-[10000] mx-2 md:mx-auto">
           <DialogHeader>
             <DialogTitle className="font-pixel text-pixel text-xl">
               🎨 ASCII TATTOO
@@ -218,7 +233,7 @@ const HeroSection = () => {
 
       {/* Cybersigilism Image Dialog */}
       <Dialog open={showCyberImage} onOpenChange={setShowCyberImage}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-[95vw] md:max-w-2xl z-[10000] mx-2 md:mx-auto">
           <DialogHeader>
             <DialogTitle className="font-pixel text-pixel text-xl">
               🔮 CYBERSIGILISM
@@ -243,7 +258,7 @@ const HeroSection = () => {
 
       {/* Black Graphics Image Dialog */}
       <Dialog open={showBlackGraphicsImage} onOpenChange={setShowBlackGraphicsImage}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-[95vw] md:max-w-2xl z-[10000] mx-2 md:mx-auto">
           <DialogHeader>
             <DialogTitle className="font-pixel text-pixel text-xl">
               ⚫ BLACK GRAPHICS
@@ -268,7 +283,7 @@ const HeroSection = () => {
 
       {/* GTM Info Dialog */}
       <Dialog open={showGtmInfo} onOpenChange={setShowGtmInfo}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] md:max-w-3xl max-h-[90vh] overflow-y-auto z-[10000] mx-2 md:mx-auto">
           <DialogHeader>
             <DialogTitle className="font-pixel text-pixel text-2xl">
               🚀 GTM РАЗМЕЩЕНИЕ - БЕСПЛАТНО!

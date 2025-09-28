@@ -76,34 +76,38 @@ const CTASection = () => {
             </div>
 
             <Card className="geometric-3d card-3d hover-3d">
-              <CardContent className="flex items-center space-x-4 p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <MessageCircle className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <div className="font-medium">Telegram</div>
-                  <div className="text-sm text-muted-foreground">
-                    Быстрые ответы и консультации
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/30">
+                    <MessageCircle className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-medium text-lg">Telegram</div>
+                    <div className="text-sm text-muted-foreground">
+                      Быстрые ответы и консультации
+                    </div>
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="ml-auto btn-3d btn-pixel-secondary font-pixel text-xs" onClick={handleTelegramClick}>
+                <Button variant="outline" size="lg" className="w-full btn-3d btn-pixel-secondary font-pixel text-sm px-6 py-3" onClick={handleTelegramClick}>
                   НАПИСАТЬ
                 </Button>
               </CardContent>
             </Card>
 
             <Card className="geometric-3d card-3d hover-3d">
-              <CardContent className="flex items-center space-x-4 p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Mail className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <div className="font-medium">Email</div>
-                  <div className="text-sm text-muted-foreground">
-                    Подробные консультации и документы
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/30">
+                    <Mail className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-medium text-lg">Email</div>
+                    <div className="text-sm text-muted-foreground">
+                      Подробные консультации и документы
+                    </div>
                   </div>
                 </div>
-                <Button variant="outline" size="sm" className="ml-auto btn-3d btn-pixel-secondary font-pixel text-xs" onClick={handleEmailClick}>
+                <Button variant="outline" size="lg" className="w-full btn-3d btn-pixel-secondary font-pixel text-sm px-6 py-3" onClick={handleEmailClick}>
                   ОТПРАВИТЬ
                 </Button>
               </CardContent>
@@ -111,11 +115,11 @@ const CTASection = () => {
 
             <Card className="geometric-3d card-3d hover-3d cursor-pointer" onClick={handleTelegramClick}>
               <CardContent className="flex items-center space-x-4 p-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Clock className="h-6 w-6 text-primary" />
+                <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/30">
+                  <Clock className="h-8 w-8 text-primary" />
                 </div>
-                <div>
-                  <div className="font-medium">Поддержка 24/7</div>
+                <div className="flex-1">
+                  <div className="font-medium text-lg">Поддержка 24/7</div>
                   <div className="text-sm text-muted-foreground">
                     Наша команда готова ответить на все ваши вопросы в любое время
                   </div>
