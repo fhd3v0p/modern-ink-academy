@@ -51,8 +51,8 @@ const CoursesSection = () => {
     },
     {
       title: "Procreate для тату",
-      subtitle: "От LUCIVIY",
-      price: "34 990 ₽",
+      subtitle: "Создание эскизов",
+      price: "14 990 ₽",
       oldPrice: "34 990 ₽",
       duration: "2 недели",
       badge: "🎨 LVL UP",
@@ -118,37 +118,36 @@ const CoursesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {mainCourses.map((course, index) => (
               <Card key={index} className="geometric-3d card-3d hover-3d pixel-grid" data-course={course.title}>
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
+                <CardHeader className="space-y-1">
+                  <div className="flex items-center justify-between mb-1">
                     <Badge className="btn-pixel-primary font-pixel text-xs">
                       {course.badge}
                     </Badge>
-                    {course.oldPrice && (
-                      <span className="text-xs text-muted-foreground line-through">
-                        {course.oldPrice}
-                      </span>
-                    )}
                   </div>
                   <CardTitle className="text-lg font-pixel">{course.title}</CardTitle>
                   <CardDescription className="font-pixel text-xs">{course.subtitle}</CardDescription>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xl font-pixel text-primary">💰 {course.price}</span>
-                    <span className="text-xs font-pixel text-muted-foreground">⏱️ {course.duration}</span>
+                  <div className="space-y-1">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xl font-pixel text-primary">💰 {course.price}</span>
+                      {course.oldPrice && (
+                        <span className="text-sm font-pixel text-muted-foreground line-through">
+                          {course.oldPrice}
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-xs font-pixel text-muted-foreground">⏱️ {course.duration}</div>
                   </div>
                   <div className="text-xs font-pixel text-secondary">🎁 {course.bonus}</div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className={course.title === "Новичок" ? "space-y-2" : ""}>
                   <p className="text-sm text-muted-foreground mb-4">{course.description}</p>
                   <ul className="text-xs space-y-1 mb-4">
-                    {course.features.slice(0, 3).map((feature, idx) => (
+                    {course.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center space-x-2">
                         <Check className="h-3 w-3 text-primary" />
                         <span>{feature}</span>
                       </li>
                     ))}
-                    {course.features.length > 3 && (
-                      <li className="text-primary font-pixel">+ еще {course.features.length - 3} пунктов</li>
-                    )}
                   </ul>
                 </CardContent>
                 <CardFooter>
