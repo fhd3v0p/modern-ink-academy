@@ -276,6 +276,157 @@ All colors MUST be HSL for consistency and theme switching.
     animation: pixelFloat 3s ease-in-out infinite;
   }
 
+  /* Logo animations */
+  @keyframes slideInLeft {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideInRight {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideInCenter {
+    0% { transform: translateX(-50%) translateY(-50px); opacity: 0; }
+    100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideInCenterLeft {
+    0% { transform: translateX(-80px) translateY(-30px); opacity: 0; }
+    100% { transform: translateX(0) translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideInCenterRight {
+    0% { transform: translateX(80px) translateY(-30px); opacity: 0; }
+    100% { transform: translateX(0) translateY(0); opacity: 1; }
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(2deg); }
+    50% { transform: translateY(-12px) rotate(0deg); }
+    75% { transform: translateY(-8px) rotate(-2deg); }
+  }
+
+  .pixel-float-left {
+    animation: slideInLeft 1.5s ease-out 0.5s both, logoFloat 4s ease-in-out 2s infinite;
+  }
+
+  .pixel-float-center-left {
+    animation: slideInCenterLeft 1.5s ease-out 0.8s both, logoFloat 4s ease-in-out 2.2s infinite;
+  }
+
+  .pixel-float-center {
+    animation: slideInCenter 1.5s ease-out 1s both, logoFloat 4s ease-in-out 2.5s infinite;
+  }
+
+  .pixel-float-center-right {
+    animation: slideInCenterRight 1.5s ease-out 1.2s both, logoFloat 4s ease-in-out 2.8s infinite;
+  }
+
+  .pixel-float-right {
+    animation: slideInRight 1.5s ease-out 1.5s both, logoFloat 4s ease-in-out 3s infinite;
+  }
+
+  /* Chaotic orbit animations around main logo */
+  @keyframes chaoticOrbit1 {
+    0% { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+  }
+
+  @keyframes chaoticOrbit2 {
+    0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    100% { transform: rotate(-360deg) translateX(120px) rotate(360deg); }
+  }
+
+  @keyframes chaoticOrbit3 {
+    0% { transform: rotate(0deg) translateX(160px) translateY(-40vh) rotate(0deg); }
+    100% { transform: rotate(180deg) translateX(160px) translateY(40vh) rotate(-180deg); }
+  }
+
+  @keyframes chaoticOrbit4 {
+    0% { transform: rotate(0deg) translateX(130px) translateY(40vh) rotate(0deg); }
+    100% { transform: rotate(-180deg) translateX(130px) translateY(-40vh) rotate(180deg); }
+  }
+
+  @keyframes chaoticOrbit5 {
+    0% { transform: rotate(0deg) translateX(150px) translateY(-35vh) rotate(0deg); }
+    100% { transform: rotate(270deg) translateX(150px) translateY(35vh) rotate(-270deg); }
+  }
+
+  .chaotic-orbit-1 {
+    animation: chaoticOrbit1 8s linear infinite;
+  }
+
+  .chaotic-orbit-2 {
+    animation: chaoticOrbit2 10s linear infinite;
+  }
+
+  .chaotic-orbit-3 {
+    animation: chaoticOrbit3 12s linear infinite;
+  }
+
+  .chaotic-orbit-4 {
+    animation: chaoticOrbit4 9s linear infinite;
+  }
+
+  .chaotic-orbit-5 {
+    animation: chaoticOrbit5 11s linear infinite;
+  }
+
+  /* Logo vibration animation */
+  @keyframes logoVibration {
+    0% { transform: scale(1) translateX(0px) translateY(0px); }
+    10% { transform: scale(1.15) translateX(-2px) translateY(-1px); }
+    20% { transform: scale(1.15) translateX(2px) translateY(1px); }
+    30% { transform: scale(1.15) translateX(-1px) translateY(2px); }
+    40% { transform: scale(1.15) translateX(1px) translateY(-2px); }
+    50% { transform: scale(1.15) translateX(-2px) translateY(1px); }
+    60% { transform: scale(1.15) translateX(2px) translateY(-1px); }
+    70% { transform: scale(1.15) translateX(-1px) translateY(-2px); }
+    80% { transform: scale(1.15) translateX(1px) translateY(2px); }
+    90% { transform: scale(1.15) translateX(-2px) translateY(-1px); }
+    100% { transform: scale(1) translateX(0px) translateY(0px); }
+  }
+
+  .logo-attack {
+    animation: logoVibration 0.8s ease-in-out;
+  }
+
+  /* Free flying animations */
+  @keyframes freeFly1 {
+    0% { transform: translate(0px, -60vh) rotate(0deg); }
+    25% { transform: translate(200px, 0vh) rotate(90deg); }
+    50% { transform: translate(-150px, 60vh) rotate(180deg); }
+    75% { transform: translate(300px, 30vh) rotate(270deg); }
+    100% { transform: translate(0px, -60vh) rotate(360deg); }
+  }
+
+  @keyframes freeFly2 {
+    0% { transform: translate(0px, 60vh) rotate(0deg); }
+    25% { transform: translate(-200px, -30vh) rotate(-90deg); }
+    50% { transform: translate(250px, -60vh) rotate(-180deg); }
+    75% { transform: translate(-100px, 0vh) rotate(-270deg); }
+    100% { transform: translate(0px, 60vh) rotate(-360deg); }
+  }
+
+  .free-fly-1 {
+    animation: freeFly1 15s linear infinite;
+  }
+
+  .free-fly-2 {
+    animation: freeFly2 18s linear infinite;
+  }
+
+  /* White neon glow for orbiting logos */
+  .neon-glow-white {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8)) 
+            drop-shadow(0 0 24px rgba(255, 255, 255, 0.6)) 
+            drop-shadow(0 0 36px rgba(255, 255, 255, 0.4))
+            drop-shadow(0 0 48px rgba(255, 255, 255, 0.2));
+  }
+
   /* Pixel grid background */
   .pixel-grid {
     background-image: 
@@ -283,4 +434,117 @@ All colors MUST be HSL for consistency and theme switching.
       linear-gradient(90deg, hsl(var(--pixel-cyan) / 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
   }
+
+}
+
+/* Dialog close button styles - Windows 98 style */
+[data-radix-dialog-close] {
+  font-family: 'Courier New', monospace !important;
+  font-size: 2.4rem !important;
+  font-weight: bold !important;
+  width: 4rem !important;
+  height: 4rem !important;
+  border-radius: 0 !important;
+  background: #00ff00 !important;
+  color: #000000 !important;
+  border: 2px outset #00ff00 !important;
+  box-shadow: 
+    inset -1px -1px #ffffff,
+    inset 1px 1px #808080,
+    2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+  transition: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+[data-radix-dialog-close]:hover {
+  background: #00cc00 !important;
+  border: 2px inset #00cc00 !important;
+  box-shadow: 
+    inset 1px 1px #ffffff,
+    inset -1px -1px #808080,
+    1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-radix-dialog-close]:active {
+  background: #00aa00 !important;
+  border: 2px inset #00aa00 !important;
+  box-shadow: 
+    inset 1px 1px #808080,
+    inset -1px -1px #ffffff,
+    0px 0px 1px rgba(0, 0, 0, 0.3) !important;
+  transform: translate(1px, 1px) !important;
+}
+
+/* Windows 98 style X symbol */
+[data-radix-dialog-close]::before {
+  content: "Х" !important;
+  font-size: 1.8rem !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00 !important;
+}
+
+/* Stories-style avatar animations */
+@keyframes stories-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.avatar-stories {
+  position: relative;
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #22c55e, #16a34a, #22c55e, #4ade80);
+  background-size: 400% 400%;
+  animation: stories-pulse 2s ease-in-out infinite;
+  border-radius: 50%;
+  width: 64px !important;
+  height: 64px !important;
+  min-width: 64px;
+  min-height: 64px;
+  max-width: 64px;
+  max-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.avatar-stories::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, #22c55e, #16a34a, #22c55e, #4ade80);
+  background-size: 400% 400%;
+  border-radius: 50%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.avatar-stories img {
+  border-radius: 50%;
+  border: 2px solid white;
+  width: 58px !important;
+  height: 58px !important;
+  min-width: 58px;
+  min-height: 58px;
+  max-width: 58px;
+  max-height: 58px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
 }

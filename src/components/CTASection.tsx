@@ -7,18 +7,11 @@ const CTASection = () => {
   const { toast } = useToast();
 
   const handleConsultationClick = () => {
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в течение 24 часов для записи на консультацию",
-    });
+    window.open('https://t.me/emitattoo', '_blank');
   };
 
   const handleTelegramClick = () => {
-    toast({
-      title: "Telegram",
-      description: "Переходим в Telegram для быстрой связи",
-    });
-    // В реальном приложении здесь был бы переход на t.me/your_bot
+    window.open('https://t.me/emitattoo', '_blank');
   };
 
   const handleEmailClick = () => {
@@ -40,7 +33,7 @@ const CTASection = () => {
             Запишитесь на бесплатную консультацию и выберите подходящий курс
           </p>
           <div className="mt-4 font-pixel text-xs text-accent">
-            AI ПОДБОР КУРСА • ПЕРСОНАЛЬНЫЙ ПЛАН • ГЕЙМИФИКАЦИЯ
+            ИНДИВИДУАЛЬНЫЙ ПОДБОР КУРСА • ПЕРСОНАЛЬНЫЙ ПЛАН • ГЕЙМИФИКАЦИЯ • ПРОДВИЖЕНИЕ
           </div>
         </div>
 
@@ -94,7 +87,7 @@ const CTASection = () => {
                   </div>
                 </div>
                 <Button variant="outline" size="sm" className="ml-auto btn-3d btn-pixel-secondary font-pixel text-xs" onClick={handleTelegramClick}>
-                  📱 НАПИСАТЬ
+                  НАПИСАТЬ
                 </Button>
               </CardContent>
             </Card>
@@ -111,12 +104,12 @@ const CTASection = () => {
                   </div>
                 </div>
                 <Button variant="outline" size="sm" className="ml-auto btn-3d btn-pixel-secondary font-pixel text-xs" onClick={handleEmailClick}>
-                  📧 ОТПРАВИТЬ
+                  ОТПРАВИТЬ
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="geometric-3d card-3d hover-3d">
+            <Card className="geometric-3d card-3d hover-3d cursor-pointer" onClick={handleTelegramClick}>
               <CardContent className="flex items-center space-x-4 p-6">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Clock className="h-6 w-6 text-primary" />
@@ -125,6 +118,9 @@ const CTASection = () => {
                   <div className="font-medium">Поддержка 24/7</div>
                   <div className="text-sm text-muted-foreground">
                     Наша команда готова ответить на все ваши вопросы в любое время
+                  </div>
+                  <div className="text-xs text-primary font-pixel mt-1">
+                    Telegram: @emitattoo
                   </div>
                 </div>
               </CardContent>
