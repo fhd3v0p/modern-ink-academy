@@ -723,3 +723,42 @@ All colors MUST be HSL for consistency and theme switching.
   object-position: center;
   flex-shrink: 0;
 }
+
+/* Heartbeat animation for payment button */
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Инверсия корпоративных цветов при наведении */
+.btn-pixel-primary:hover {
+  background-color: hsl(var(--secondary)) !important;
+  color: hsl(var(--secondary-foreground)) !important;
+  border-color: hsl(var(--secondary)) !important;
+}
+
+.btn-pixel-secondary:hover {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  border-color: hsl(var(--primary)) !important;
+}

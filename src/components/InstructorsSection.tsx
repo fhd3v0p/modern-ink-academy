@@ -22,7 +22,7 @@ const InstructorsSection = () => {
     {
       name: "EMI",
       title: "Директор школы",
-      experience: "5+ лет опыта",
+      experience: "3+ лет опыта",
       specialization: "Управление, разработка курсов",
       description: "Основатель и директор SBT SCHOOL. Придумала и разработала все курсы школы. Обеспечивает качественное образование и развитие тату-индустрии.",
       skills: [
@@ -74,7 +74,7 @@ const InstructorsSection = () => {
     {
       name: "BLOODIVAMP",
       title: "Мастер пирсинга и обработки оборудования",
-      experience: "5+ лет опыта",
+      experience: "3+ лет опыта",
       specialization: "Пирсинг, обработка оборудования",
       description: "Профессиональный мастер пирсинга с глубокими знаниями в области обработки оборудования. Обеспечивает безопасность и качество процедур.",
       skills: [
@@ -317,16 +317,16 @@ const InstructorsSection = () => {
                         <Button 
                           size="sm" 
                           variant="outline" 
-                          className="btn-3d btn-pixel-secondary font-pixel text-xs shadow-lg"
+                          className="btn-3d btn-pixel-secondary font-pixel text-xs shadow-lg heartbeat hover:animate-none"
                           onClick={() => setSelectedInstructor(instructor.name)}
                         >
-                          🎨 ПОРТФОЛИО
+                          📷 ПОРТФОЛИО
                         </Button>
                       </DialogTrigger>
                       <DialogContent className="max-w-[95vw] md:max-w-4xl max-h-[90vh] overflow-y-auto z-[10000] mx-2 md:mx-auto">
                         <DialogHeader>
                           <DialogTitle className="font-pixel text-pixel text-2xl">
-                            🎨 ПОРТФОЛИО {instructor.name}
+                            📷 ПОРТФОЛИО {instructor.name}
                           </DialogTitle>
                         </DialogHeader>
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
@@ -389,7 +389,7 @@ const InstructorsSection = () => {
         >
           <DialogHeader>
             <DialogTitle className="text-center mb-6 font-pixel text-pixel">
-              🎨 ПОРТФОЛИО {currentInstructor?.name} ({currentImageIndex + 1}/{currentInstructor?.portfolio.length})
+              📷 ПОРТФОЛИО {currentInstructor?.name} ({currentImageIndex + 1}/{currentInstructor?.portfolio.length})
             </DialogTitle>
           </DialogHeader>
           {selectedPortfolioImage && currentInstructor && (

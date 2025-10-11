@@ -11,9 +11,29 @@ import abstractShapes221 from "@/assets/abstract-shapes-221.png";
 const CoursesSection = () => {
   const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
   const [showAsciiImage, setShowAsciiImage] = useState(false);
+  const [showPaymentInfo, setShowPaymentInfo] = useState(false);
   const mainCourses = [
     {
-      title: "Новичок",
+      title: "START",
+      subtitle: "Курс для начинающих",
+      price: "35 000 ₽",
+      oldPrice: "70 000 ₽",
+      duration: "21 день",
+      badge: "🏆 ПОПУЛЯРНЫЙ",
+      description: "Базовый курс от основ до первой работы. Теория, практика, оборудование и создание портфолио.",
+      features: [
+        "Теория татуировки и философия",
+        "Выбор и настройка оборудования",
+        "Работа с кожей и пигментами",
+        "Безопасность и обработка оборудования",
+        "Практика на искусственной коже",
+        "Создание эскизов",
+        "Развитие соцсетей"
+      ],
+      bonus: "Поддержка 24/7"
+    },
+    {
+      title: "START+",
       subtitle: "Курс для начинающих",
       price: "69 990 ₽",
       oldPrice: "100 000 ₽",
@@ -139,7 +159,7 @@ const CoursesSection = () => {
                   </div>
                   <div className="text-xs font-pixel text-secondary">🎁 {course.bonus}</div>
                 </CardHeader>
-                <CardContent className={course.title === "Новичок" ? "space-y-2" : ""}>
+                <CardContent className={course.title === "START" || course.title === "START+" ? "space-y-2" : ""}>
                   <p className="text-sm text-muted-foreground mb-4">{course.description}</p>
                   <ul className="text-xs space-y-1 mb-4">
                     {course.features.map((feature, idx) => (
@@ -152,68 +172,27 @@ const CoursesSection = () => {
                 </CardContent>
                 <CardFooter>
                   <div className="flex justify-center items-center space-x-2 w-full">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button 
-                          size="sm" 
-                          variant="outline" 
-                          className={`px-1 btn-3d font-pixel text-xs flex items-center justify-center w-8 h-8 ${
-                            index === 1 ? 'btn-pixel-secondary' : 'btn-pixel-primary'
-                          }`}
-                          onClick={() => setSelectedCourse(course.title)}
-                        >
-                          [i]
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-[95vw] md:max-w-xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl z-[10000] mx-2 md:mx-auto">
-                        <DialogHeader>
-                          <DialogTitle className="text-center mb-6 font-pixel text-pixel">
-                            ℹ️ ПОДРОБНАЯ ИНФОРМАЦИЯ
-                          </DialogTitle>
-                        </DialogHeader>
-                        
-                        <div className="space-y-3">
-                          <div className="bg-gradient-to-br from-background to-background/80 border border-primary/40 rounded-lg p-4">
-                            <h3 className="text-lg font-pixel text-pixel mb-3">{course.title} - {course.subtitle}</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                              {course.description}
-                            </p>
-                            <div className="mb-3">
-                              <h4 className="text-sm font-semibold text-primary mb-2">🎯 Что вы получите:</h4>
-                              <ul className="text-xs space-y-1">
-                                {course.features.map((feature, index) => (
-                                  <li key={index} className="flex items-start space-x-2">
-                                    <span className="text-primary font-bold">•</span>
-                                    <span>{feature}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                            <div className="text-center">
-                              <Button 
-                                className="btn-pixel-primary font-pixel text-xs px-3 py-1 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-                                onClick={() => {
-                                  const demoUrls = {
-                                    "Новичок": "https://demo1.sbt.skin",
-                                    "PRO+ Ведение соцсетей": "https://demo2.sbt.skin", 
-                                    "Procreate для тату": "https://demo3.sbt.skin"
-                                  };
-                                  const url = demoUrls[course.title as keyof typeof demoUrls];
-                                  if (url) window.open(url, '_blank');
-                                }}
-                              >
-                                🎯 ПРОЙТИ ПЕРВЫЙ УРОК БЕСПЛАТНО
-                              </Button>
-                              <p className="text-xs text-muted-foreground mt-2 font-pixel">
-                                Начните обучение прямо сейчас!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                    <Button className={`btn-3d font-pixel text-sm ${index === 1 ? 'btn-pixel-secondary border-0' : 'btn-pixel-primary'} flex-1 px-4 py-2`}>
-                      🚀 ЗАПИСАТЬСЯ
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className={`btn-3d font-pixel text-xs flex items-center justify-center heartbeat hover:animate-none flex-1 ${
+                        index === 1 ? 'btn-pixel-secondary' : 'btn-pixel-primary'
+                      }`}
+                      onClick={() => {
+                        const demoUrls = {
+                          "START": "https://start.sbt.skin",
+                          "START+": "https://start.sbt.skin",
+                          "PRO+ Ведение соцсетей": "https://pr.sbt.skin", 
+                          "Procreate для тату": "https://procreate.sbt.skin"
+                        };
+                        const url = demoUrls[course.title as keyof typeof demoUrls];
+                        if (url) window.open(url, '_blank');
+                      }}
+                    >
+                      🎮 ДЕМО урок
+                    </Button>
+                    <Button className={`btn-3d font-pixel text-xs flex items-center justify-center flex-1 ${index === 1 ? 'btn-pixel-secondary border-0' : 'btn-pixel-primary'}`} onClick={() => window.open('https://t.me/emitattoo', '_blank')}>
+                      📞 КОНСУЛЬТАЦИЯ
                     </Button>
                   </div>
                 </CardFooter>
@@ -221,6 +200,7 @@ const CoursesSection = () => {
             ))}
           </div>
         </div>
+
 
         {/* Niche Courses */}
         <div>
@@ -242,76 +222,16 @@ const CoursesSection = () => {
                 </CardHeader>
                 <CardFooter>
                   <div className="flex justify-center items-center space-x-2 w-full">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button 
-                          size="sm" 
-                          variant="outline" 
-                          className="px-1 btn-3d btn-pixel-secondary font-pixel text-xs flex items-center justify-center w-8 h-8"
-                          onClick={() => setSelectedCourse(course.title)}
-                        >
-                          [i]
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="max-w-[95vw] md:max-w-xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl z-[10000] mx-2 md:mx-auto">
-                        <DialogHeader>
-                          <DialogTitle className="text-center mb-6 font-pixel text-pixel">
-                            ℹ️ ПОДРОБНАЯ ИНФОРМАЦИЯ
-                          </DialogTitle>
-                        </DialogHeader>
-                        
-                        <div className="space-y-3">
-                          <div className="bg-gradient-to-br from-background to-background/80 border border-primary/40 rounded-lg p-4">
-                            <h3 className="text-lg font-pixel text-pixel mb-3">{course.title}</h3>
-                            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                              Подробная информация о курсе "{course.title}" будет добавлена в ближайшее время.
-                            </p>
-                            <div className="mb-3">
-                              <h4 className="text-sm font-semibold text-primary mb-2">🎯 Что вы получите:</h4>
-                              <ul className="text-xs space-y-1">
-                                <li className="flex items-start space-x-2">
-                                  <span className="text-primary font-bold">•</span>
-                                  <span>Практические навыки</span>
-                                </li>
-                                <li className="flex items-start space-x-2">
-                                  <span className="text-primary font-bold">•</span>
-                                  <span>Обратную связь от экспертов</span>
-                                </li>
-                                <li className="flex items-start space-x-2">
-                                  <span className="text-primary font-bold">•</span>
-                                  <span>Доступ к материалам</span>
-                                </li>
-                                <li className="flex items-start space-x-2">
-                                  <span className="text-primary font-bold">•</span>
-                                  <span>Сертификат о прохождении</span>
-                                </li>
-                              </ul>
-                            </div>
-                            <div className="text-center">
-                              <Button 
-                                className="btn-pixel-primary font-pixel text-xs px-3 py-1 shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-                                onClick={() => {
-                                  const demoUrls = {
-                                    "Разовое индивидуальное занятие": "https://demo1.sbt.skin",
-                                    "Обработка оборудования": "https://demo2.sbt.skin", 
-                                    "Черная графика": "https://demo3.sbt.skin"
-                                  };
-                                  const url = demoUrls[course.title as keyof typeof demoUrls];
-                                  if (url) window.open(url, '_blank');
-                                }}
-                              >
-                                🎯 ПРОЙТИ ПЕРВЫЙ УРОК БЕСПЛАТНО
-                              </Button>
-                              <p className="text-xs text-muted-foreground mt-2 font-pixel">
-                                Начните обучение прямо сейчас!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
-                    <Button variant="outline" className="btn-3d btn-pixel-secondary font-pixel text-sm flex-1 px-4 py-2">
-                      🚀 ЗАПИСАТЬСЯ
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="btn-3d btn-pixel-secondary font-pixel text-xs flex items-center justify-center heartbeat hover:animate-none flex-1"
+                      onClick={() => window.open('https://start.sbt.skin', '_blank')}
+                    >
+                      🎮 ДЕМО урок
+                    </Button>
+                    <Button variant="outline" className="btn-3d btn-pixel-secondary font-pixel text-xs flex items-center justify-center flex-1" onClick={() => window.open('https://t.me/emitattoo', '_blank')}>
+                      📞 КОНСУЛЬТАЦИЯ
                     </Button>
                   </div>
                 </CardFooter>
@@ -320,6 +240,53 @@ const CoursesSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Payment Options Modal */}
+      <Dialog open={showPaymentInfo} onOpenChange={setShowPaymentInfo}>
+        <DialogContent className="max-w-[95vw] md:max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl z-[10000] mx-2 md:mx-auto">
+          <DialogHeader>
+            <DialogTitle className="text-center mb-6 font-pixel text-pixel text-2xl">
+              💳 ОПЛАТА ОБУЧЕНИЯ В РАССРОЧКУ
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-6">
+            <div className="text-center">
+              <p className="text-lg text-muted-foreground mb-6">
+                Возможность оплаты обучения в рассрочку или частями от 12+ банков
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                  <div className="text-2xl mb-2">🏦</div>
+                  <h4 className="font-pixel text-primary mb-2">12+ Банков</h4>
+                  <p className="text-sm text-muted-foreground">Широкий выбор банков-партнеров</p>
+                </div>
+                <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                  <div className="text-2xl mb-2">📅</div>
+                  <h4 className="font-pixel text-primary mb-2">Гибкие сроки</h4>
+                  <p className="text-sm text-muted-foreground">От 3 до 24 месяцев рассрочки</p>
+                </div>
+                <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                  <div className="text-2xl mb-2">✅</div>
+                  <h4 className="font-pixel text-primary mb-2">Без переплат</h4>
+                  <p className="text-sm text-muted-foreground">0% переплата при оформлении</p>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 rounded-lg p-4">
+                <p className="text-sm font-pixel text-primary mb-2">💡 Как это работает:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 text-left max-w-2xl mx-auto">
+                  <li>• Выбираете курс и оформляете заявку на рассрочку</li>
+                  <li>• Банк одобряет заявку в течение 5-15 минут</li>
+                  <li>• Начинаете обучение сразу после одобрения</li>
+                  <li>• Платите равными частями без переплат</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

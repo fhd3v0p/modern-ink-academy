@@ -16,6 +16,7 @@ const HeroSection = () => {
   const [showCyberImage, setShowCyberImage] = useState(false);
   const [showBlackGraphicsImage, setShowBlackGraphicsImage] = useState(false);
   const [showGtmInfo, setShowGtmInfo] = useState(false);
+  const [showPaymentInfo, setShowPaymentInfo] = useState(false);
 
   const handleStartLearning = () => {
     const coursesSection = document.getElementById('courses');
@@ -182,9 +183,9 @@ const HeroSection = () => {
               <div className="text-3xl font-pixel text-secondary mb-2">8+</div>
               <div className="text-muted-foreground font-pixel text-xs">ЛЕТ ОПЫТА</div>
             </div>
-            <div className="geometric-3d card-3d p-6 rounded-lg hover-3d pixel-grid">
-              <div className="text-3xl font-pixel text-accent mb-2">24/7</div>
-              <div className="text-muted-foreground font-pixel text-xs">AI ПОДДЕРЖКА</div>
+            <div className="geometric-3d card-3d p-6 rounded-lg hover-3d pixel-grid cursor-pointer heartbeat hover:animate-none" onClick={() => setShowPaymentInfo(true)}>
+              <div className="text-3xl font-pixel text-accent mb-2">💳</div>
+              <div className="text-muted-foreground font-pixel text-xs">РАССРОЧКА</div>
             </div>
             <div className="geometric-3d card-3d p-6 rounded-lg hover-3d pixel-grid ring-2 ring-accent/50 cursor-pointer relative" onClick={() => setShowGtmInfo(true)}>
               <div className="text-2xl font-pixel text-accent mb-2">GTM</div>
@@ -368,6 +369,53 @@ const HeroSection = () => {
                   <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-white font-bold text-xs">3</div>
                   <span className="text-sm">Получаете первых моделей еще во время обучения</span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Payment Options Modal */}
+      <Dialog open={showPaymentInfo} onOpenChange={setShowPaymentInfo}>
+        <DialogContent className="max-w-[95vw] md:max-w-4xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-background to-background/80 border-2 border-primary/40 shadow-xl z-[10000] mx-2 md:mx-auto">
+          <DialogHeader>
+            <DialogTitle className="text-center mb-6 font-pixel text-pixel text-2xl">
+              💳 ОПЛАТА ОБУЧЕНИЯ В РАССРОЧКУ
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="space-y-6">
+            <div className="text-center">
+              <p className="text-lg text-muted-foreground mb-6">
+                Возможность оплаты обучения в рассрочку или частями от 12+ банков
+              </p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                  <div className="text-2xl mb-2">🏦</div>
+                  <h4 className="font-pixel text-primary mb-2">12+ Банков</h4>
+                  <p className="text-sm text-muted-foreground">Широкий выбор банков-партнеров</p>
+                </div>
+                <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                  <div className="text-2xl mb-2">📅</div>
+                  <h4 className="font-pixel text-primary mb-2">Гибкие сроки</h4>
+                  <p className="text-sm text-muted-foreground">От 3 до 24 месяцев рассрочки</p>
+                </div>
+                <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
+                  <div className="text-2xl mb-2">✅</div>
+                  <h4 className="font-pixel text-primary mb-2">Без переплат</h4>
+                  <p className="text-sm text-muted-foreground">0% переплата при оформлении</p>
+                </div>
+              </div>
+              
+              <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/30 rounded-lg p-4">
+                <p className="text-sm font-pixel text-primary mb-2">💡 Как это работает:</p>
+                <ul className="text-sm text-muted-foreground space-y-1 text-left max-w-2xl mx-auto">
+                  <li>• Выбираете курс и оформляете заявку на рассрочку</li>
+                  <li>• Банк одобряет заявку в течение 5-15 минут</li>
+                  <li>• Начинаете обучение сразу после одобрения</li>
+                  <li>• Платите равными частями без переплат</li>
+                </ul>
               </div>
             </div>
           </div>

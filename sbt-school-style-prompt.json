@@ -1,0 +1,237 @@
+{
+  "project_name": "SBT School - Modern Ink Academy",
+  "description": "Инновационная онлайн школа татуировки с киберпанк дизайном и пиксельной эстетикой",
+  "brand_identity": {
+    "name": "SBT SCHOOL",
+    "full_name": "STOP BULLYING TATTOO",
+    "tagline": "ИННОВАЦИОННАЯ ОНЛАЙН ШКОЛА ТАТУИРОВКИ",
+    "logo_description": "Эмо-череп с пиксельным дизайном в стиле киберпанк",
+    "mission": "Освойте искусство татуировки с помощью передовых технологий обучения"
+  },
+  "design_system": {
+    "theme": "Dark Cyberpunk Pixel Art",
+    "color_palette": {
+      "primary": {
+        "name": "Pixel Pink",
+        "hsl": "320 100% 75%",
+        "usage": "Основные кнопки, акценты, логотип"
+      },
+      "secondary": {
+        "name": "Cyber Cyan", 
+        "hsl": "180 100% 70%",
+        "usage": "Вторичные элементы, градиенты"
+      },
+      "accent": {
+        "name": "Pixel Purple",
+        "hsl": "280 100% 75%",
+        "usage": "Выделение, специальные элементы"
+      },
+      "highlight": {
+        "name": "Neon Green",
+        "hsl": "120 100% 60%",
+        "usage": "Подсветка, индикаторы"
+      },
+      "background": {
+        "name": "Dark Cyber",
+        "hsl": "0 0% 8%",
+        "usage": "Основной фон"
+      },
+      "foreground": {
+        "name": "Light Text",
+        "hsl": "0 0% 95%",
+        "usage": "Основной текст"
+      },
+      "muted": {
+        "name": "Muted Pink",
+        "hsl": "320 20% 15%",
+        "usage": "Вторичный текст, карточки"
+      }
+    },
+    "typography": {
+      "primary_font": "Press Start 2P",
+      "description": "Пиксельный шрифт для заголовков и кнопок",
+      "secondary_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      "description_secondary": "Системный шрифт для основного текста"
+    },
+    "visual_elements": {
+      "gradients": [
+        "linear-gradient(135deg, hsl(320 100% 75%), hsl(180 100% 70%))",
+        "linear-gradient(145deg, hsl(0 0% 15%), hsl(320 30% 20%), hsl(180 30% 20%))",
+        "linear-gradient(135deg, hsl(0 0% 8%), hsl(320 30% 15%), hsl(180 30% 15%))"
+      ],
+      "shadows": [
+        "0 8px 32px hsl(0 0% 0% / 0.6), 0 2px 8px hsl(320 100% 75% / 0.2)",
+        "0 0 20px hsl(320 100% 75% / 0.6), 0 0 40px hsl(180 100% 70% / 0.4)"
+      ],
+      "borders": "2px solid hsl(320 100% 75%)",
+      "border_radius": "0.5rem"
+    }
+  },
+  "component_styles": {
+    "buttons": {
+      "primary": {
+        "class": "btn-3d btn-pixel-primary",
+        "style": "3D пиксельная кнопка с градиентом pink-cyan",
+        "effects": "hover: translateY(-4px), pixel glow animation, shimmer effect"
+      },
+      "secondary": {
+        "class": "btn-3d btn-pixel-secondary", 
+        "style": "3D пиксельная кнопка с градиентом cyan-green",
+        "effects": "hover: translateY(-4px), pixel glow animation"
+      },
+      "info": {
+        "class": "btn-3d font-pixel text-xs",
+        "style": "Компактная кнопка [i] для информации",
+        "size": "w-8 h-8"
+      }
+    },
+    "cards": {
+      "main": {
+        "class": "geometric-3d card-3d hover-3d pixel-grid",
+        "style": "3D карточка с пиксельной сеткой и градиентным фоном",
+        "effects": "hover: translateY(-6px) rotateX(5deg), pixel glow"
+      },
+      "instructor": {
+        "class": "geometric-border hover-lift bg-gradient-to-br",
+        "style": "Карточка преподавателя с анимированным аватаром",
+        "effects": "stories-style avatar animation, hover lift"
+      }
+    },
+    "navigation": {
+      "style": "Fixed top navigation with backdrop blur",
+      "logo": "SBT School logo with pixel glow effect",
+      "menu_items": "Uppercase tracking-wider font"
+    },
+    "dialogs": {
+      "style": "Gradient background with pixel border",
+      "close_button": "Bright pixel X button with neon glow",
+      "animations": "Slide in from top with scale effect"
+    }
+  },
+  "animations": {
+    "logo_animations": [
+      "pixel-float: continuous floating with rotation",
+      "logo-attack: vibration effect on click",
+      "chaotic-orbit: orbiting logos around main logo",
+      "free-fly: logos flying across screen"
+    ],
+    "button_animations": [
+      "pixelGlow: brightness and hue rotation",
+      "shimmer: light sweep effect on hover",
+      "3D lift: translateY and rotateX on hover"
+    ],
+    "background_patterns": [
+      "abstract-pattern: geometric dot patterns",
+      "pixel-grid: grid overlay with pixel colors",
+      "floating graphics: abstract shapes with low opacity"
+    ]
+  },
+  "layout_structure": {
+    "sections": [
+      {
+        "name": "Hero Section",
+        "elements": ["Floating logo", "Statistics cards", "CTA button", "Background patterns"],
+        "style": "Full screen with animated elements"
+      },
+      {
+        "name": "Courses Section", 
+        "elements": ["Course cards", "Info dialogs", "Pricing", "Badges"],
+        "style": "Grid layout with 3D cards"
+      },
+      {
+        "name": "Instructors Section",
+        "elements": ["Instructor cards", "Portfolio galleries", "Avatar animations"],
+        "style": "2-column grid with stories-style avatars"
+      },
+      {
+        "name": "CTA Section",
+        "elements": ["Contact cards", "Consultation form", "Social links"],
+        "style": "Contact methods with 3D effects"
+      },
+      {
+        "name": "Footer",
+        "elements": ["Brand info", "Course links", "Contact info"],
+        "style": "3-column layout with hover effects"
+      }
+    ]
+  },
+  "interactive_features": {
+    "hover_effects": [
+      "3D card lifting with rotation",
+      "Pixel glow on buttons",
+      "Shimmer animation on primary buttons",
+      "Scale effects on avatars"
+    ],
+    "click_effects": [
+      "Logo vibration animation",
+      "Dialog opening with slide animation",
+      "Portfolio image navigation",
+      "Smooth scroll to sections"
+    ],
+    "mobile_optimizations": [
+      "Touch-friendly button sizes",
+      "Swipe navigation for portfolios",
+      "Responsive grid layouts",
+      "Compact dialog sizing"
+    ]
+  },
+  "content_themes": {
+    "tattoo_styles": [
+      "ASCII Tattoo",
+      "Cybersigilism", 
+      "Black Graphics",
+      "Traditional Tattoo"
+    ],
+    "learning_features": [
+      "Геймификация",
+      "AI Ассистент",
+      "Практические навыки",
+      "24/7 Поддержка"
+    ],
+    "course_types": [
+      "Новичок - полный курс для начинающих",
+      "PRO+ Ведение соцсетей - продвинутые техники",
+      "Procreate для тату - создание эскизов",
+      "Индивидуальные занятия",
+      "Обработка оборудования"
+    ]
+  },
+  "technical_specifications": {
+    "framework": "React + TypeScript + Vite",
+    "styling": "Tailwind CSS + Custom CSS",
+    "ui_components": "Radix UI + shadcn/ui",
+    "animations": "CSS animations + transitions",
+    "responsive": "Mobile-first approach",
+    "accessibility": "Keyboard navigation, screen reader support"
+  },
+  "brand_personality": {
+    "tone": "Современный, инновационный, игровой",
+    "voice": "Профессиональный с элементами геймификации",
+    "values": [
+      "Качественное образование",
+      "Инновационные технологии",
+      "Поддержка сообщества",
+      "Безопасность и профессионализм"
+    ],
+    "target_audience": "Начинающие и опытные тату-мастера, дизайнеры, творческие люди"
+  },
+  "demo_lesson_requirements": {
+    "format": "Интерактивный урок с элементами геймификации",
+    "style": "Соответствует общему дизайну сайта",
+    "features": [
+      "Пиксельная эстетика",
+      "3D эффекты",
+      "Интерактивные элементы",
+      "Прогресс-бар в стиле игры",
+      "Анимированные иконки и кнопки"
+    ],
+    "content_types": [
+      "Видео уроки",
+      "Интерактивные задания", 
+      "Тесты и квизы",
+      "Практические упражнения",
+      "Обратная связь"
+    ]
+  }
+}
+
