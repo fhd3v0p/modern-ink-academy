@@ -15,11 +15,7 @@ const CTASection = () => {
   };
 
   const handleEmailClick = () => {
-    toast({
-      title: "Email",
-      description: "Открываем почтовый клиент для отправки письма",
-    });
-    // В реальном приложении здесь был бы mailto:
+    window.open('mailto:emily_robot@proton.me', '_blank');
   };
 
   return (
