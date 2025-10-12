@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import abstractShapes1 from "@/assets/abstract-shapes-1.webp";
 import abstractShapes2 from "@/assets/abstract-shapes-2.webp";
 import abstractShapes22 from "@/assets/abstract-shapes-22.png";
@@ -17,6 +18,7 @@ const HeroSection = () => {
   const [showBlackGraphicsImage, setShowBlackGraphicsImage] = useState(false);
   const [showGtmInfo, setShowGtmInfo] = useState(false);
   const [showPaymentInfo, setShowPaymentInfo] = useState(false);
+  const [gtmCarouselIndex, setGtmCarouselIndex] = useState(0);
 
   const handleStartLearning = () => {
     const coursesSection = document.getElementById('courses');
@@ -291,15 +293,53 @@ const HeroSection = () => {
             </DialogTitle>
           </DialogHeader>
           <div className="mt-6 space-y-6">
-            {/* GIF блок */}
+            {/* Карусель скриншотов GTM */}
             <div className="text-center">
-              <div className="text-sm font-pixel text-muted-foreground mb-2">🎬 Демонстрация работы GTM</div>
-              {/* Здесь будет гиф из S3 бакета */}
-              <div className="bg-background/50 border-2 border-dashed border-accent/30 rounded-lg p-8 text-center">
-                <div className="text-muted-foreground font-pixel text-sm">
-                  📹 GIF будет загружен из S3 бакета
+              <div className="text-sm font-pixel text-muted-foreground mb-4">🎬 Демонстрация работы GTM</div>
+              
+              <div className="relative bg-background/50 border-2 border-accent/30 rounded-lg p-4">
+                {/* Изображение */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <img 
+                    src={[
+                      "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/GTM/gtm1.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9HVE0vZ3RtMS5wbmciLCJpYXQiOjE3NjAyODI1NjAsImV4cCI6MTc5MTgxODU2MH0.y6IVvu_ZlVtgem8bYERM_qlQdZMG4Esmy6HwgSkOKak",
+                      "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/GTM/gtm2.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9HVE0vZ3RtMi5wbmciLCJpYXQiOjE3NjAyODI2MDIsImV4cCI6MTc5MTgxODYwMn0.f9aSSAZ0kpT1UlBhhJhe7rgxd8--3WOhUsdNfWxBUHs",
+                      "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/GTM/gtm3.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9HVE0vZ3RtMy5wbmciLCJpYXQiOjE3NjAyODI2MTAsImV4cCI6MTc5MTgxODYxMH0.5y6aSJVIVLYNUEnChc2gOuPdnk5EKUT9NAAb1VL-IlA"
+                    ][gtmCarouselIndex]}
+                    alt={`GTM Screenshot ${gtmCarouselIndex + 1}`}
+                    className="w-full h-auto rounded-lg"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+Cjwvc3ZnPg==';
+                    }}
+                  />
+                  
+                  {/* Кнопки навигации */}
+                  <button
+                    onClick={() => setGtmCarouselIndex((prev) => (prev - 1 + 3) % 3)}
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-2 transition-all duration-200"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setGtmCarouselIndex((prev) => (prev + 1) % 3)}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-2 transition-all duration-200"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
                 </div>
-                {/* <img src="https://s3-bucket-url/gtm-demo.gif" alt="GTM Demo" className="max-w-full h-auto rounded-lg" /> */}
+                
+                {/* Индикаторы */}
+                <div className="flex justify-center space-x-2 mt-4">
+                  {[0, 1, 2].map((index) => (
+                    <button
+                      key={index}
+                      onClick={() => setGtmCarouselIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                        index === gtmCarouselIndex ? 'bg-accent' : 'bg-muted-foreground/30'
+                      }`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -370,6 +410,16 @@ const HeroSection = () => {
                   <span className="text-sm">Получаете первых моделей еще во время обучения</span>
                 </div>
               </div>
+            </div>
+            
+            {/* Кнопка Подробнее */}
+            <div className="text-center mt-6">
+              <Button 
+                className="btn-3d btn-pixel-primary font-pixel text-sm px-8 py-3"
+                onClick={() => window.open('https://t.me/GTM_ROBOT', '_blank')}
+              >
+                🤖 ПОДРОБНЕЕ
+              </Button>
             </div>
           </div>
         </DialogContent>
