@@ -10,7 +10,8 @@ const Navigation = () => {
     { name: "ГЛАВНАЯ", href: "#hero" },
     { name: "КУРСЫ", href: "#courses" },
     { name: "ПРЕПОДАВАТЕЛИ", href: "#instructors" },
-    { name: "КОНТАКТЫ", href: "#contact" }
+    { name: "КОНТАКТЫ", href: "#contact" },
+    { name: "ОФЕРТА", href: "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/oferta/offer-sbt.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9vZmVydGEvb2ZmZXItc2J0LnBkZiIsImlhdCI6MTc2MDI5Njk1MCwiZXhwIjoxNzkxODMyOTUwfQ.mfUiIo8wrL_c2LxrK3co_Z_kDAB0wLFJuFq5Wu4fR5I" }
   ];
 
   const courseLinks = [
@@ -45,6 +46,10 @@ alt="SBT School - Emo Skull Logo"
                   key={item.name}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider"
+                  onClick={item.name === "ОФЕРТА" ? (e) => {
+                    e.preventDefault();
+                    window.open(item.href, '_blank');
+                  } : undefined}
                 >
                   {item.name}
                 </a>
@@ -74,7 +79,11 @@ alt="SBT School - Emo Skull Logo"
                   key={item.name}
                   href={item.href}
                   className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors text-sm font-medium tracking-wider"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={item.name === "ОФЕРТА" ? (e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    window.open(item.href, '_blank');
+                  } : () => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>
@@ -107,8 +116,8 @@ alt="SBT School - Emo Skull Logo"
                             const courseElement = document.querySelector(`[data-course="${courseName}"]`);
                             if (courseElement) {
                               courseElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                              courseElement.style.outline = '2px solid #00ff00';
-                              setTimeout(() => { courseElement.style.outline = 'none'; }, 3000);
+                              (courseElement as HTMLElement).style.outline = '2px solid #00ff00';
+                              setTimeout(() => { (courseElement as HTMLElement).style.outline = 'none'; }, 3000);
                             }
                           }
                         }, 500);

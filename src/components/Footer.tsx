@@ -17,7 +17,8 @@ const Footer = () => {
     "Поддержка 24/7",
     "Бесплатная консультация",
     "Telegram: @emitattoo",
-    "Политика конфиденциальности"
+    "Политика конфиденциальности",
+    "Оферта"
   ];
 
   return (
@@ -144,6 +145,8 @@ const Footer = () => {
                       e.preventDefault();
                       if (info === "Политика конфиденциальности") {
                         window.location.href = '/privacy';
+                      } else if (info === "Оферта") {
+                        window.open('https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/oferta/offer-sbt.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9vZmVydGEvb2ZmZXItc2J0LnBkZiIsImlhdCI6MTc2MDI5Njk1MCwiZXhwIjoxNzkxODMyOTUwfQ.mfUiIo8wrL_c2LxrK3co_Z_kDAB0wLFJuFq5Wu4fR5I', '_blank');
                       } else {
                         handleTelegramClick();
                       }
@@ -163,7 +166,7 @@ const Footer = () => {
           </p>
           <div className="mt-4 text-xs text-muted-foreground space-y-1">
             <p className="italic">Данные на сайте не являются публичной офертой и представлены в ознакомительных целях</p>
-            <p>ИП Смирнова Елена Сергеевна</p>
+            <p>Самозанятый Смирнова Елена Сергеевна</p>
             <p>ИНН 602715727933</p>
           </div>
         </div>
