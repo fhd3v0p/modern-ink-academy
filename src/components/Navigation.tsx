@@ -7,10 +7,10 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "ГЛАВНАЯ", href: "#hero" },
-    { name: "КУРСЫ", href: "#courses" },
-    { name: "ПРЕПОДАВАТЕЛИ", href: "#instructors" },
-    { name: "КОНТАКТЫ", href: "#contact" },
+    { name: "ГЛАВНАЯ", href: "/#hero" },
+    { name: "КУРСЫ", href: "/#courses" },
+    { name: "ПРЕПОДАВАТЕЛИ", href: "/#instructors" },
+    { name: "КОНТАКТЫ", href: "/#contact" },
     { name: "ОФЕРТА", href: "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/oferta/offer-sbt.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9vZmVydGEvb2ZmZXItc2J0LnBkZiIsImlhdCI6MTc2MDI5Njk1MCwiZXhwIjoxNzkxODMyOTUwfQ.mfUiIo8wrL_c2LxrK3co_Z_kDAB0wLFJuFq5Wu4fR5I" }
   ];
 
@@ -95,33 +95,13 @@ alt="SBT School - Emo Skull Logo"
                 {courseLinks.map((link, index) => (
                   <a
                     key={index}
-                    href="#courses"
+                    href="/#courses"
                     className="block px-6 py-2 text-muted-foreground hover:text-primary transition-colors text-sm"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMenuOpen(false);
-                      const coursesSection = document.getElementById('courses');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                          const courseMap = {
-                            "Для начинающих": "Новичок",
-                            "Для опытных": "PRO+ Ведение соцсетей",
-                            "Procreate": "Procreate для тату",
-                            "Индивидуальное занятие": "Разовое индивидуальное занятие",
-                            "Обработка оборудования": "Обработка оборудования"
-                          };
-                          const courseName = courseMap[link];
-                          if (courseName) {
-                            const courseElement = document.querySelector(`[data-course="${courseName}"]`);
-                            if (courseElement) {
-                              courseElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                              (courseElement as HTMLElement).style.outline = '2px solid #00ff00';
-                              setTimeout(() => { (courseElement as HTMLElement).style.outline = 'none'; }, 3000);
-                            }
-                          }
-                        }, 500);
-                      }
+                      // Переходим на главную страницу с якорем на курсы
+                      window.location.href = '/#courses';
                     }}
                   >
                     {link}
