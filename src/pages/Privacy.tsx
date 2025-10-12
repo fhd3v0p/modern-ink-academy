@@ -45,7 +45,6 @@ const Privacy = () => {
               <h2 className="text-xl font-semibold mb-4">3. Сведения об Операторе</h2>
               <div className="bg-muted/50 p-4 rounded-lg">
                 <p><strong>Полное наименование:</strong> Самозанятая Смирнова Елена Сергеевна</p>
-                <p><strong>Адрес:</strong> Санкт-Петербург ул.Набережная реки Фонтанки, 78 пом.10, Россия, 191180</p>
                 <p><strong>ИНН:</strong> 602715727933</p>
                 <p><strong>Телефон:</strong> 79801589080</p>
                 <p><strong>Email:</strong> emily_robot@proton.me</p>
@@ -229,7 +228,6 @@ const Privacy = () => {
               <h2 className="text-xl font-semibold mb-4">14. Обратная связь и контакты</h2>
               <p>По всем вопросам, связанным с обработкой персональных данных, субъект персональных данных может обращаться к Оператору:</p>
               <div className="bg-muted/50 p-4 rounded-lg mt-4">
-                <p><strong>Почтовый адрес:</strong> Санкт-Петербург ул.Набережная реки Фонтанки, 78 пом.10 191180</p>
                 <p><strong>Электронная почта:</strong> emily_robot@proton.me</p>
                 <p><strong>Телефон:</strong> 79801589080</p>
               </div>
