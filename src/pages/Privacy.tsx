@@ -44,7 +44,7 @@ const Privacy = () => {
             <section>
               <h2 className="text-xl font-semibold mb-4">3. Сведения об Операторе</h2>
               <div className="bg-muted/50 p-4 rounded-lg">
-                <p><strong>Полное наименование:</strong> Самозанятая Смирнова Елена Сергеевна</p>
+                <p><strong>Полное наименование:</strong> Самозанятый Смирнова Елена Сергеевна</p>
                 <p><strong>ИНН:</strong> 602715727933</p>
                 <p><strong>Телефон:</strong> 79801589080</p>
                 <p><strong>Email:</strong> emily_robot@proton.me</p>
