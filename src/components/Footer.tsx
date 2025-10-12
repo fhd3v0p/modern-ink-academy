@@ -16,7 +16,8 @@ const Footer = () => {
   const contactInfo = [
     "Поддержка 24/7",
     "Бесплатная консультация",
-    "Telegram: @emitattoo"
+    "Telegram: @emitattoo",
+    "Политика конфиденциальности"
   ];
 
   return (
@@ -141,7 +142,11 @@ const Footer = () => {
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
                     onClick={(e) => {
                       e.preventDefault();
-                      handleTelegramClick();
+                      if (info === "Политика конфиденциальности") {
+                        window.location.href = '/privacy';
+                      } else {
+                        handleTelegramClick();
+                      }
                     }}
                   >
                     {info}
@@ -156,6 +161,11 @@ const Footer = () => {
           <p className="text-muted-foreground text-sm">
             © 2025 SBT (STOP BULLYING TATTOO). Все права защищены.
           </p>
+          <div className="mt-4 text-xs text-muted-foreground space-y-1">
+            <p className="italic">Данные на сайте не являются публичной офертой и представлены в ознакомительных целях</p>
+            <p>ИП Смирнова Елена Сергеевна</p>
+            <p>ИНН 602715727933</p>
+          </div>
         </div>
       </div>
     </footer>
