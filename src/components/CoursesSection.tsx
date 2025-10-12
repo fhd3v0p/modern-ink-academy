@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +15,14 @@ const CoursesSection = () => {
   const [showDemoLesson, setShowDemoLesson] = useState(false);
   const [showEquipmentDemo, setShowEquipmentDemo] = useState(false);
   const [showBlackGraphicDemo, setShowBlackGraphicDemo] = useState(false);
+  const [individualGalleryIndex, setIndividualGalleryIndex] = useState(0);
+  const [showFullscreenImage, setShowFullscreenImage] = useState<string | null>(null);
+
+  const individualImages = [
+    "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/corses/indcall/gal1.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9jb3JzZXMvaW5kY2FsbC9nYWwxLmpwZyIsImlhdCI6MTc2MDI4Nzc0OCwiZXhwIjoxNzkxODIzNzQ4fQ.RU2DEjowLYbs919dC582-Uk1s7EKcjelwokWrL1I70o",
+    "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/corses/indcall/gal2.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9jb3JzZXMvaW5kY2FsbC9nYWwyLmpwZyIsImlhdCI6MTc2MDI4Nzc4OCwiZXhwIjoxNzkxODIzNzg4fQ.kXP2yrYEQVR1--IOxlPN9jxbDWanH4dCgaFgQMoqik0",
+    "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/corses/indcall/gal3.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9jb3JzZXMvaW5kY2FsbC9nYWwzLmpwZyIsImlhdCI6MTc2MDI4Nzc5NiwiZXhwIjoxNzkxODIzNzk2fQ.8zWXYIqBoKPDiZJtGnc2hpdSe_comqH3WzJLjIVX45o"
+  ];
   const mainCourses = [
     {
       title: "START",
@@ -109,7 +117,7 @@ const CoursesSection = () => {
       duration: "4-5 часов",
       instructors: "EMI & BLOODIVAMP",
       team: "EMI & BLOODIVAMP [i]",
-      description: "Для действующих мастеров, которые хотят поднять уровень своей подготовки и реально разбираться в безопасности процедур. Пирсинг процедура более травматичная, чем тату • СанПиН • Асептика / антисептика • ПСО / дезинфекция • Работа с кожей и её восстановлением • Как грамотно обрабатывать оборудование • Какие этапы важны и зачем • Как работает кожа и на что реально влияет чистота • Как снизить риски воспалений и осложнений • Почему безопасность это не просто 'стерильно', а комплекс знаний"
+      description: "Для действующих мастеров, которые хотят поднять уровень своей подготовки и реально разбираться в безопасности процедур. СанПиН • Асептика / антисептика • ПСО / дезинфекция • Работа с кожей и её восстановлением • Как грамотно обрабатывать оборудование • Какие этапы важны и зачем • Как работает кожа и на что реально влияет чистота • Как снизить риски воспалений и осложнений • Почему безопасность это не просто 'стерильно', а комплекс знаний"
     },
     {
       title: "Черная графика",
@@ -382,6 +390,68 @@ const CoursesSection = () => {
                 </p>
               </div>
             </div>
+
+            {/* Video Section */}
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-lg p-6">
+              <h4 className="text-lg font-semibold text-primary mb-4 font-pixel text-center">🎥 Демо видео</h4>
+              <div className="flex justify-center">
+                <video 
+                  controls 
+                  className="max-w-full h-auto rounded-lg border border-primary/20"
+                  poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5WaWRlbyBub3QgZm91bmQ8L3RleHQ+Cjwvc3ZnPg=="
+                >
+                  <source src="https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/corses/indcall/IMG_3044.MP4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9jb3JzZXMvaW5kY2FsbC9JTUdfMzA0NC5NUDQiLCJpYXQiOjE3NjAyODc4MDksImV4cCI6MTc5MTgyMzgwOX0.5dX13_0JhixlAYU27ziwZAlnj5nti5cKjIiu_LnqkHw" type="video/mp4" />
+                  Ваш браузер не поддерживает видео.
+                </video>
+              </div>
+            </div>
+
+            {/* Gallery Section */}
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-lg p-6">
+              <h4 className="text-lg font-semibold text-primary mb-4 font-pixel text-center">🖼️ Галерея работ</h4>
+              
+              <div className="relative bg-background/50 border-2 border-accent/30 rounded-lg p-4">
+                {/* Изображение */}
+                <div className="relative overflow-hidden rounded-lg">
+                  <img 
+                    src={individualImages[individualGalleryIndex]}
+                    alt={`Индивидуальное занятие ${individualGalleryIndex + 1}`}
+                    className="w-full h-64 object-cover rounded-lg cursor-pointer hover:opacity-90 transition-opacity duration-200"
+                    onClick={() => setShowFullscreenImage(individualImages[individualGalleryIndex])}
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZSBub3QgZm91bmQ8L3RleHQ+Cjwvc3ZnPg==';
+                    }}
+                  />
+                  
+                  {/* Кнопки навигации */}
+                  <button
+                    onClick={() => setIndividualGalleryIndex((prev) => (prev - 1 + individualImages.length) % individualImages.length)}
+                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-2 transition-all duration-200"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIndividualGalleryIndex((prev) => (prev + 1) % individualImages.length)}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-background/80 hover:bg-background text-foreground rounded-full p-2 transition-all duration-200"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
+                
+                {/* Индикаторы */}
+                <div className="flex justify-center space-x-2 mt-4">
+                  {individualImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setIndividualGalleryIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                        index === individualGalleryIndex ? 'bg-accent' : 'bg-muted-foreground/30'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
             
             <div className="text-center">
               <Button 
@@ -465,6 +535,21 @@ const CoursesSection = () => {
                 <p className="text-center font-pixel text-primary text-lg">
                   Будет полезно всем, кто хочет работать не просто красиво, но и профессионально.
                 </p>
+              </div>
+            </div>
+
+            {/* Video Section */}
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-lg p-6">
+              <h4 className="text-lg font-semibold text-primary mb-4 font-pixel text-center">🎥 Демо видео</h4>
+              <div className="flex justify-center">
+                <video 
+                  controls 
+                  className="max-w-full h-auto rounded-lg border border-primary/20"
+                  poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5WaWRlbyBub3QgZm91bmQ8L3RleHQ+Cjwvc3ZnPg=="
+                >
+                  <source src="https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/corses/oborudka/IMG_3048.MP4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9jb3JzZXMvb2JvcnVka2EvSU1HXzMwNDguTVA0IiwiaWF0IjoxNzYwMjg3MTY3LCJleHAiOjE3OTE4MjMxNjd9.xaU74OU0yx5G6J2HhCnfJtZZNPoQE8PMtygUH2LUvzE" type="video/mp4" />
+                  Ваш браузер не поддерживает видео.
+                </video>
               </div>
             </div>
             
@@ -605,6 +690,32 @@ const CoursesSection = () => {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Fullscreen Image Modal */}
+      {showFullscreenImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-[99999] flex items-center justify-center p-4"
+          onClick={() => setShowFullscreenImage(null)}
+        >
+          <div className="relative max-w-full max-h-full">
+            <img 
+              src={showFullscreenImage}
+              alt="Полноэкранное изображение"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowFullscreenImage(null);
+              }}
+              className="absolute top-4 right-4 bg-red-500/80 hover:bg-red-500 text-white rounded-full p-2 transition-all duration-200 z-10"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
