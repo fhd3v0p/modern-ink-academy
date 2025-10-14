@@ -15,7 +15,16 @@ const CTASection = () => {
   };
 
   const handleEmailClick = () => {
-    window.open('mailto:emily_robot@proton.me', '_blank');
+    const subject = encodeURIComponent('Запрос на консультацию - SBT School');
+    const body = encodeURIComponent(`Привет! Меня заинтересовали курсы SBT School. Хочу получить консультацию и узнать подробности о программах обучения.
+
+Мой уровень подготовки: [укажите ваш уровень]
+Интересующие курсы: [укажите интересующие курсы]
+Дополнительные вопросы: [если есть]
+
+Спасибо!`);
+    
+    window.open(`mailto:emily_robot@proton.me?subject=${subject}&body=${body}`, '_blank');
   };
 
   return (

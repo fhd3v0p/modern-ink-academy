@@ -10,6 +10,7 @@ const Navigation = () => {
     { name: "ГЛАВНАЯ", href: "/#hero" },
     { name: "КУРСЫ", href: "/#courses" },
     { name: "ПРЕПОДАВАТЕЛИ", href: "/#instructors" },
+    { name: "ОТЗЫВЫ", href: "/#reviews" },
     { name: "КОНТАКТЫ", href: "/#contact" },
     { name: "ОФЕРТА", href: "https://lhosbbgiqgnrrrfjocsw.supabase.co/storage/v1/object/sign/SBT/site/oferta/offer-sbt.pdf?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hOTE2YmRmOS1kM2Q2LTQ5ODMtOGU0Ni0yY2M2ZjEzNjFkMmQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJTQlQvc2l0ZS9vZmVydGEvb2ZmZXItc2J0LnBkZiIsImlhdCI6MTc2MDI5Njk1MCwiZXhwIjoxNzkxODMyOTUwfQ.mfUiIo8wrL_c2LxrK3co_Z_kDAB0wLFJuFq5Wu4fR5I" }
   ];
