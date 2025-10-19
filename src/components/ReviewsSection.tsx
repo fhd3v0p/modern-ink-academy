@@ -178,7 +178,7 @@ const ReviewsSection = () => {
           </p>
           <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/40 rounded-lg p-6 max-w-4xl mx-auto">
             <p className="text-lg text-foreground leading-relaxed mb-4">
-              Уже <span className="font-bold text-primary">303+ учеников</span> успешно завершили онлайн-обучение по новой методике!
+              Уже <span className="font-bold text-primary">15+ учеников</span> успешно завершили онлайн-обучение по новой методике!
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Формат отлично зарекомендовал себя: он экономит ваше время, позволяет получать знания без лишней воды и делает обучение доступным из любого города. Особенно это важно для тех, у кого нет возможности посещать очные курсы.
