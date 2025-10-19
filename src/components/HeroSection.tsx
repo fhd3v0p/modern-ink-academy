@@ -435,14 +435,17 @@ const HeroSection = () => {
           
           <div className="space-y-6">
             <div className="text-center">
+              <div className="bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/40 rounded-lg p-4 mb-6">
+                <h3 className="text-xl font-bold text-primary mb-2">Учитесь, а платите потом!</h3>
+              </div>
               <p className="text-lg text-muted-foreground mb-6">
-                Возможность оплаты обучения в рассрочку или частями от 12+ банков
+                Возможность оплаты обучения в рассрочку или частями от 7+ банков
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
                   <div className="text-2xl mb-2">🏦</div>
-                  <h4 className="font-pixel text-primary mb-2">12+ Банков</h4>
+                  <h4 className="font-pixel text-primary mb-2">7+ Банков</h4>
                   <p className="text-sm text-muted-foreground">Широкий выбор банков-партнеров</p>
                 </div>
                 <div className="bg-background/50 border border-primary/20 rounded-lg p-4">
