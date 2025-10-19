@@ -177,7 +177,7 @@ const HeroSection = () => {
           {/* Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
             <div className="geometric-3d card-3d p-6 rounded-lg hover-3d pixel-grid">
-              <div className="text-3xl font-pixel text-primary mb-2">227+</div>
+              <div className="text-3xl font-pixel text-primary mb-2">303+</div>
               <div className="text-muted-foreground font-pixel text-xs">СТУДЕНТОВ</div>
             </div>
             <div className="geometric-3d card-3d p-6 rounded-lg hover-3d pixel-grid">
