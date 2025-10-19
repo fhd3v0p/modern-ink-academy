@@ -18,6 +18,7 @@ const AnchorRedirect = () => {
     }
   }, [location.pathname, navigate]);
 
+  // Не рендерим ничего, так как это только редирект
   return null;
 };
 

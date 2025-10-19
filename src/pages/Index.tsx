@@ -6,16 +6,17 @@ import ReviewsSection from "@/components/ReviewsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 const Index = () => {
   const location = useLocation();
+  const hasScrolled = useRef(false);
 
   useEffect(() => {
     // Проверяем, есть ли якорь в URL
     const hash = location.hash;
-    if (hash) {
+    if (hash && !hasScrolled.current) {
       // Убираем # из начала
       const targetId = hash.substring(1);
       
@@ -28,12 +29,13 @@ const Index = () => {
             behavior: 'smooth',
             block: 'start'
           });
+          hasScrolled.current = true;
         }
-      }, 100);
+      }, 500); // Увеличиваем задержку для полной загрузки
 
       return () => clearTimeout(timer);
     }
-  }, [location.hash]);
+  }, [location.hash]); // Срабатывает только при изменении hash
 
   return (
     <div className="min-h-screen">
