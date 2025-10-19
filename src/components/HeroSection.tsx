@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { scrollToElement } from "@/lib/scrollUtils";
 import abstractShapes1 from "@/assets/abstract-shapes-1.webp";
 import abstractShapes2 from "@/assets/abstract-shapes-2.webp";
 import abstractShapes22 from "@/assets/abstract-shapes-22.png";
@@ -21,10 +22,8 @@ const HeroSection = () => {
   const [gtmCarouselIndex, setGtmCarouselIndex] = useState(0);
 
   const handleStartLearning = () => {
-    const coursesSection = document.getElementById('courses');
-    if (coursesSection) {
-      coursesSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
+    const success = scrollToElement('courses');
+    if (!success) {
       toast({
         title: "Добро пожаловать в SBT!",
         description: "Скоро здесь появятся наши курсы по татуировке",

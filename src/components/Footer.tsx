@@ -1,4 +1,5 @@
 import sbtSchoolLogo from "@/assets/Removal-54.png";
+import { scrollToCourses } from "@/lib/scrollUtils";
 
 const Footer = () => {
   const courseLinks = [
@@ -8,6 +9,23 @@ const Footer = () => {
     "Индивидуальное занятие",
     "Обработка оборудования"
   ];
+
+  const handleCourseClick = (e: React.MouseEvent, link: string) => {
+    e.preventDefault();
+    if (link === "Для опытных") {
+      scrollToCourses("PRO+ Ведение соцсетей");
+    } else if (link === "Для начинающих") {
+      scrollToCourses("Новичок");
+    } else if (link === "Procreate") {
+      scrollToCourses("Procreate для тату");
+    } else if (link === "Индивидуальное занятие") {
+      scrollToCourses("Разовое индивидуальное занятие");
+    } else if (link === "Обработка оборудования") {
+      scrollToCourses("Обработка оборудования");
+    } else {
+      scrollToCourses();
+    }
+  };
 
   const handleTelegramClick = () => {
     window.open('https://t.me/emitattoo', '_blank');
@@ -54,77 +72,7 @@ const Footer = () => {
                   <a 
                     href={link === "Для опытных" ? "#courses" : "#courses"}
                     className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                    onClick={link === "Для опытных" ? (e) => {
-                      e.preventDefault();
-                      const coursesSection = document.getElementById('courses');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                          const proCourse = document.querySelector('[data-course="PRO+ Ведение соцсетей"]');
-                          if (proCourse) {
-                            proCourse.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            proCourse.style.outline = '2px solid #00ff00';
-                            setTimeout(() => { proCourse.style.outline = 'none'; }, 3000);
-                          }
-                        }, 500);
-                      }
-                    } : link === "Для начинающих" ? (e) => {
-                      e.preventDefault();
-                      const coursesSection = document.getElementById('courses');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                          const noviceCourse = document.querySelector('[data-course="Новичок"]');
-                          if (noviceCourse) {
-                            noviceCourse.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            noviceCourse.style.outline = '2px solid #00ff00';
-                            setTimeout(() => { noviceCourse.style.outline = 'none'; }, 3000);
-                          }
-                        }, 500);
-                      }
-                    } : link === "Procreate" ? (e) => {
-                      e.preventDefault();
-                      const coursesSection = document.getElementById('courses');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                          const procreateCourse = document.querySelector('[data-course="Procreate для тату"]');
-                          if (procreateCourse) {
-                            procreateCourse.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            procreateCourse.style.outline = '2px solid #00ff00';
-                            setTimeout(() => { procreateCourse.style.outline = 'none'; }, 3000);
-                          }
-                        }, 500);
-                      }
-                    } : link === "Индивидуальное занятие" ? (e) => {
-                      e.preventDefault();
-                      const coursesSection = document.getElementById('courses');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                          const individualCourse = document.querySelector('[data-course="Разовое индивидуальное занятие"]');
-                          if (individualCourse) {
-                            individualCourse.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            individualCourse.style.outline = '2px solid #00ff00';
-                            setTimeout(() => { individualCourse.style.outline = 'none'; }, 3000);
-                          }
-                        }, 500);
-                      }
-                    } : link === "Обработка оборудования" ? (e) => {
-                      e.preventDefault();
-                      const coursesSection = document.getElementById('courses');
-                      if (coursesSection) {
-                        coursesSection.scrollIntoView({ behavior: 'smooth' });
-                        setTimeout(() => {
-                          const equipmentCourse = document.querySelector('[data-course="Обработка оборудования"]');
-                          if (equipmentCourse) {
-                            equipmentCourse.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            equipmentCourse.style.outline = '2px solid #00ff00';
-                            setTimeout(() => { equipmentCourse.style.outline = 'none'; }, 3000);
-                          }
-                        }, 500);
-                      }
-                    } : undefined}
+                    onClick={(e) => handleCourseClick(e, link)}
                   >
                     {link}
                   </a>
