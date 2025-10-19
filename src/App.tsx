@@ -23,6 +23,10 @@ const App = () => (
           <Route path="/courses" element={<AnchorRedirect />} />
           <Route path="/reviews" element={<AnchorRedirect />} />
           <Route path="/instructors" element={<AnchorRedirect />} />
+          {/* Нишевые курсы - отдельные страницы */}
+          <Route path="/black" element={<AnchorRedirect />} />
+          <Route path="/inless" element={<AnchorRedirect />} />
+          <Route path="/oborudka" element={<AnchorRedirect />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
