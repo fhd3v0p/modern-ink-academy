@@ -167,7 +167,7 @@ const HeroSection = () => {
           <div className="mb-12">
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Освойте искусство татуировки с помощью передовых технологий обучения. 
-              От <span className="text-primary font-pixel cursor-pointer hover:text-secondary transition-colors" onClick={() => setShowAsciiImage(true)}>ASCII tattoo</span> до <span className="text-primary font-pixel cursor-pointer hover:text-secondary transition-colors" onClick={() => setShowCyberImage(true)}>cybersigilism</span> и <span className="text-secondary font-pixel cursor-pointer hover:text-primary transition-colors" onClick={() => setShowBlackGraphicsImage(true)}>black graphics</span>.
+              От <span className="text-primary font-pixel cursor-pointer hover:text-secondary transition-colors glitch-text" data-text="ASCII tattoo" onClick={() => setShowAsciiImage(true)}>ASCII tattoo</span> до <span className="text-primary font-pixel cursor-pointer hover:text-secondary transition-colors glitch-text" data-text="cybersigilism" onClick={() => setShowCyberImage(true)}>cybersigilism</span> и <span className="text-secondary font-pixel cursor-pointer hover:text-primary transition-colors glitch-text" data-text="black graphics" onClick={() => setShowBlackGraphicsImage(true)}>black graphics</span>.
             </p>
             <div className="mt-6 font-pixel text-sm text-accent">
               🎮 ИГРОВОЙ ПОДХОД • 🤖 AI АССИСТЕНТ • 🎯 ПРАКТИЧЕСКИЕ НАВЫКИ
@@ -473,6 +473,126 @@ const HeroSection = () => {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Glitch CSS Styles */}
+      <style jsx>{`
+        .glitch-text {
+          position: relative;
+          animation: glitch 2s infinite;
+        }
+        
+        .glitch-text::before,
+        .glitch-text::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+        
+        .glitch-text::before {
+          animation: glitch-before 0.3s infinite;
+          color: #ff0000;
+          z-index: -1;
+        }
+        
+        .glitch-text::after {
+          animation: glitch-after 0.3s infinite;
+          color: #00ffff;
+          z-index: -2;
+        }
+        
+        @keyframes glitch {
+          0%, 100% {
+            transform: translate(0);
+            filter: hue-rotate(0deg);
+          }
+          10% {
+            transform: translate(-2px, 2px);
+            filter: hue-rotate(90deg);
+          }
+          20% {
+            transform: translate(2px, -2px);
+            filter: hue-rotate(180deg);
+          }
+          30% {
+            transform: translate(-2px, -2px);
+            filter: hue-rotate(270deg);
+          }
+          40% {
+            transform: translate(2px, 2px);
+            filter: hue-rotate(360deg);
+          }
+          50% {
+            transform: translate(0);
+            filter: hue-rotate(0deg);
+          }
+          60% {
+            transform: translate(-1px, 1px);
+            filter: hue-rotate(45deg);
+          }
+          70% {
+            transform: translate(1px, -1px);
+            filter: hue-rotate(135deg);
+          }
+          80% {
+            transform: translate(-1px, -1px);
+            filter: hue-rotate(225deg);
+          }
+          90% {
+            transform: translate(1px, 1px);
+            filter: hue-rotate(315deg);
+          }
+        }
+        
+        @keyframes glitch-before {
+          0%, 100% {
+            opacity: 0;
+            transform: translate(0);
+          }
+          20% {
+            opacity: 0.8;
+            transform: translate(-2px, 2px);
+          }
+          40% {
+            opacity: 0.6;
+            transform: translate(2px, -2px);
+          }
+          60% {
+            opacity: 0.4;
+            transform: translate(-2px, -2px);
+          }
+          80% {
+            opacity: 0.2;
+            transform: translate(2px, 2px);
+          }
+        }
+        
+        @keyframes glitch-after {
+          0%, 100% {
+            opacity: 0;
+            transform: translate(0);
+          }
+          20% {
+            opacity: 0.6;
+            transform: translate(2px, -2px);
+          }
+          40% {
+            opacity: 0.4;
+            transform: translate(-2px, 2px);
+          }
+          60% {
+            opacity: 0.2;
+            transform: translate(2px, 2px);
+          }
+          80% {
+            opacity: 0.1;
+            transform: translate(-2px, -2px);
+          }
+        }
+      `}</style>
     </section>
   );
 };
