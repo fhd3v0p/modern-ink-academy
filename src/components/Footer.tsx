@@ -7,7 +7,8 @@ const Footer = () => {
     "Для опытных",
     "Procreate",
     "Индивидуальное занятие",
-    "Обработка оборудования"
+    "Обработка оборудования",
+    "Черная графика"
   ];
 
   const handleCourseClick = (e: React.MouseEvent, link: string) => {
@@ -22,6 +23,8 @@ const Footer = () => {
       scrollToCourses("Разовое индивидуальное занятие");
     } else if (link === "Обработка оборудования") {
       scrollToCourses("Обработка оборудования");
+    } else if (link === "Черная графика") {
+      scrollToCourses("Черная графика");
     } else {
       scrollToCourses();
     }

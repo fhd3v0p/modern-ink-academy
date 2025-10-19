@@ -20,7 +20,8 @@ const Navigation = () => {
     "Для опытных", 
     "Procreate",
     "Индивидуальное занятие",
-    "Обработка оборудования"
+    "Обработка оборудования",
+    "Черная графика"
   ];
 
   return (
@@ -101,8 +102,21 @@ alt="SBT School - Emo Skull Logo"
                     onClick={(e) => {
                       e.preventDefault();
                       setIsMenuOpen(false);
-                      // Переходим на главную страницу с якорем на курсы
-                      window.location.href = '/#courses';
+                      if (link === "Черная графика") {
+                        // Специальная обработка для черной графики
+                        window.location.href = '/#courses';
+                        setTimeout(() => {
+                          const blackGraphicCourse = document.querySelector('[data-course="Черная графика"]');
+                          if (blackGraphicCourse) {
+                            blackGraphicCourse.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            blackGraphicCourse.style.outline = '2px solid #00ff00';
+                            setTimeout(() => { blackGraphicCourse.style.outline = 'none'; }, 3000);
+                          }
+                        }, 500);
+                      } else {
+                        // Обычная обработка для других курсов
+                        window.location.href = '/#courses';
+                      }
                     }}
                   >
                     {link}
